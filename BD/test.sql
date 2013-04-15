@@ -69,13 +69,9 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `student_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`sid` INTEGER(2) NOT NULL COMMENT 'Звязок зі студентом',
 `key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
-PRIMARY KEY(`id`),
-CONSTRAINT FOREIGN KEY(sid) REFERENCES `student`(id) 
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
+PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -89,10 +85,10 @@ CREATE TABLE IF NOT EXISTS `student_key_value`(
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(sid) REFERENCES `student`(id) 
 	ON DELETE CASCADE
-	ON UPDATE CASCADE/*,
+	ON UPDATE CASCADE,
 CONSTRAINT FOREIGN KEY(skid) REFERENCES `student_key`(id) 
 	ON DELETE CASCADE
-	ON UPDATE CASCADE*/
+	ON UPDATE CASCADE
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -112,15 +108,15 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 CREATE TABLE IF NOT EXISTS `lessons`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор предмету',
 `kid` INTEGER(2) NOT NULL COMMENT 'звязок з кафедрою',
-`сid` INTEGER(2) NOT NULL COMMENT 'звязок з циклом предмету',
+`cid` INTEGER(2) NOT NULL COMMENT 'звязок з циклом предмету',
 `name` VARCHAR(80) NOT NULL COMMENT 'назва дисципліни',
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(`kid`) REFERENCES `kafedra`(id) 
 	ON UPDATE CASCADE 
-	ON DELETE CASCADE/*,
+	ON DELETE CASCADE,
 CONSTRAINT FOREIGN KEY(`cid`) REFERENCES `lesson_cycle`(id)
 	ON UPDATE CASCADE
-	ON DELETE CASCADE*/
+	ON DELETE CASCADE
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -142,13 +138,9 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `teacher_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`tid` INTEGER(2) NOT NULL COMMENT 'Звязок з викладачем',
 `key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
-PRIMARY KEY(`id`),
-CONSTRAINT FOREIGN KEY(tid) REFERENCES `teacher`(id) 
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
+PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -192,13 +184,9 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `personal_navant_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`pnid` INTEGER(2) NOT NULL COMMENT 'Звязок з персональним навантаженням',
 `key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
-PRIMARY KEY(`id`),
-CONSTRAINT FOREIGN KEY(pnid) REFERENCES `personal_navant`(id) 
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
+PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -240,7 +228,7 @@ CONSTRAINT FOREIGN KEY(lid) REFERENCES `lessons`(id)
 	ON UPDATE CASCADE,
 CONSTRAINT FOREIGN KEY(gid) REFERENCES `groups_of_students`(id) 
 	ON DELETE CASCADE
-	ON UPDATE CASCADE,
+	ON UPDATE CASCADE
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -248,13 +236,9 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `main_navant_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`nid` INTEGER(2) NOT NULL COMMENT 'Звязок з навантаженням',
 `key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
-PRIMARY KEY(`id`),
-CONSTRAINT FOREIGN KEY(nid) REFERENCES `main_navant`(id) 
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
+PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
@@ -280,50 +264,50 @@ COMMENT = 'Таблиця в якій зберігаються значення 
 /*end of three tables*/
 
 INSERT INTO `faculty`(`name`,`pic`)
-	VALUES ('Факультет інформаційних технологій(ФІТ)','/images/maybe/default_pic.png'),
-	VALUES ('Факультет нафтогазопроводів (ФНГП)','/images/maybe/default_pic.png'),
-	VALUES ('Факультет управління та інформаційної діяльності (ФУІД)','/images/maybe/default_pic.png');
+	VALUES	('Факультет інформаційних технологій(ФІТ)','/images/maybe/default_pic.png'),
+			('Факультет нафтогазопроводів (ФНГП)','/images/maybe/default_pic.png'),
+			('Факультет управління та інформаційної діяльності (ФУІД)','/images/maybe/default_pic.png');
 	
 INSERT INTO `kafedra`(`fid`,`name`,`pic`)
-	VALUES (1,'Кафедра інформатики','/images/maybe/default_pic.png'),
-	VALUES (1,'Кафедра програмного забезпечення автоматизованих систем','/images/maybe/default_pic.png'),
-	VALUES (2,'Кафедра транспорту і зберігання нафти і газу ','/images/maybe/default_pic.png'),
-	VALUES (2,'Кафедра нафтової і газової гідромеханіки','/images/maybe/default_pic.png'),
-	VALUES (3,'Кафедра соціальних комунікацій та права','/images/maybe/default_pic.png'),
-	VALUES (3,'Кафедра державного управління та місцевого самоврядування','/images/maybe/default_pic.png');
+	VALUES	(1,'Кафедра інформатики','/images/maybe/default_pic.png'),
+			(1,'Кафедра програмного забезпечення автоматизованих систем','/images/maybe/default_pic.png'),
+			(2,'Кафедра транспорту і зберігання нафти і газу ','/images/maybe/default_pic.png'),
+			(2,'Кафедра нафтової і газової гідромеханіки','/images/maybe/default_pic.png'),
+			(3,'Кафедра соціальних комунікацій та права','/images/maybe/default_pic.png'),
+			(3,'Кафедра державного управління та місцевого самоврядування','/images/maybe/default_pic.png');
 	
 INSERT INTO `study_form`(`name`,`prymitka`)
-	VALUES ('Денна','денна(стаціонарна) форма навчання'),
-	VALUES ('Заочна','заочна форма навчання');
+	VALUES	('Денна','денна(стаціонарна) форма навчання'),
+			('Заочна','заочна форма навчання');
 	
 INSERT INTO `groups_of_students`(`kid`,`sfid`,`name`)
-	VALUES (1,'1','АКТ-11-1'),
-	VALUES (1,'2','АКТ-10-2'),
-	VALUES (2,'1','СІ-10-2'),
-	VALUES (2,'2','ПЗ-08-1'),
-	VALUES (3,'1','ТЗ-08-2'),
-	VALUES (3,'2','ТЗ-08-1м'),
-	VALUES (4,'1','ПС-08-1'),
-	VALUES (4,'2','ПС-10-2'),
-	VALUES (5,'1','ДМ-08-1'),
-	VALUES (5,'2','ДМ-10-1'),
-	VALUES (6,'1','ДМ-09-2'),
-	VALUES (6,'2','ДМ-11-2');
+	VALUES	(1,'1','АКТ-11-1'),
+			(1,'2','АКТ-10-2'),
+			(2,'1','СІ-10-2'),
+			(2,'2','ПЗ-08-1'),
+			(3,'1','ТЗ-08-2'),
+			(3,'2','ТЗ-08-1м'),
+			(4,'1','ПС-08-1'),
+			(4,'2','ПС-10-2'),
+			(5,'1','ДМ-08-1'),
+			(5,'2','ДМ-10-1'),
+			(6,'1','ДМ-09-2'),
+			(6,'2','ДМ-11-2');
 	
 INSERT INTO `student`(`gid`) 
-	VALUES (1),
-	VALUES (1),
-	VALUES (2),
-	VALUES (2),
-	VALUES (3),
-	VALUES (3),
-	VALUES (4),
-	VALUES (4),
-	VALUES (5),
-	VALUES (5);
+	VALUES	(1),
+			(1),
+			(2),
+			(2),
+			(3),
+			(3),
+			(4),
+			(4),
+			(5),
+			(5);
 	
-INSERT INTO `student_key`(`sid`,`key_name`,`key_weight`) 
-	VALUES (1,'name',1),
-	VALUES (1,'surname',2),
-	VALUES (1,'patronimic',3),
-	VALUES (1,'number_zalik',4);
+INSERT INTO `student_key`(`key_name`,`key_weight`) 
+	VALUES	('name',1),
+			('surname',2),
+			('patronimic',3),
+			('number_zalik',4);
