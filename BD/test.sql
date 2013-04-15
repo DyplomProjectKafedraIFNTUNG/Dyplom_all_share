@@ -263,6 +263,101 @@ COMMENT = 'Таблиця в якій зберігаються значення 
 
 /*end of three tables*/
 
+/*Таблиці для привілеїв*/
+
+CREATE TABLE IF NOT EXISTS `users_groups`(
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'Ідентифікатор групи користувачів',
+`name` VARCHAR(30) NOT NULL COMMENT 'назва групи',
+`description` VARCHAR(30) NOT NULL COMMENT 'опис групи',
+PRIMARY KEY(`id`)
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій зберігаються групи користувачів';
+
+CREATE TABLE IF NOT EXISTS `priviledges`(
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'Ідентифікатор привілею',
+`name` VARCHAR(30) NOT NULL COMMENT 'назва привілею',
+`description` VARCHAR(30) NOT NULL COMMENT 'опис привілею',
+PRIMARY KEY(`id`)
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій зберігаються назви привілеїв';
+
+CREATE TABLE IF NOT EXISTS `group_priviledges`(
+`idGroup` INTEGER(2) NOT NULL COMMENT 'звязок з групами користувачів',
+`idPriv` INTEGER(2) NOT NULL COMMENT 'звязок з привілеями',
+PRIMARY KEY(`idGroup`,`idPriv`),
+FOREIGN KEY(idGroup) REFERENCES `users_groups`(id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE,
+FOREIGN KEY(idPriv) REFERENCES `priviledges`(id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій відбувається співставлення груп і даних групам привілеїв';
+
+CREATE TABLE IF NOT EXISTS `users`(
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор користувача',
+`ugid` INTEGER(2) NOT NULL DEFAULT 2 COMMENT 'звязок з групою користувачів',
+`email` VARCHAR(30) NOT NULL COMMENT 'електронна пошта',
+`pass` CHAR(32) NOT NULL COLLATE utf8_bin COMMENT 'пароль',
+`salt` VARCHAR(32) NOT NULL COLLATE utf8_bin COMMENT 'сіль(для засолювання паролю)',
+`val_url` VARCHAR(50) NOT NULL COLLATE utf8_bin COMMENT 'адреса для активації користувача',
+`active` BOOLEAN NOT NULL DEFAULT false COMMENT 'чи підтверджено адресу електронної пошти',
+PRIMARY KEY(`id`),
+UNIQUE KEY(`email`,`val_url`),
+FOREIGN KEY(ugid) REFERENCES `users_groups`(id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій зберігаються користувачі';
+
+/*Таблиці для аудиторій*/
+
+CREATE TABLE `auditory`(
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор',
+`number_aud` VARCHAR(6) NOT NULL COMMENT 'номер аудиторії',
+PRIMARY KEY(id),
+UNIQUE KEY(`number`)
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій зберігаються аудиторії';
+
+CREATE TABLE `building`(
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор',
+`number_bld` VARCHAR(6) NOT NULL COMMENT 'номер корпусу',
+`description` MEDIUMTEXT NOT NULL COMMENT 'опис',
+PRIMARY KEY(id),
+UNIQUE KEY(`number`)
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій зберігаються навчальні корпуси';
+
+CREATE TABLE IF NOT EXISTS `build_auditory`(
+`id_auditory` INTEGER(2) NOT NULL COMMENT 'звязок з групами користувачів',
+`id_build` INTEGER(2) NOT NULL COMMENT 'звязок з привілеями',
+PRIMARY KEY(`id_auditory`,`id_build`),
+FOREIGN KEY(id_auditory) REFERENCES `auditory`(id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE,
+FOREIGN KEY(id_build) REFERENCES `building`(id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+)ENGINE = InnoDB
+DEFAULT CHARACTER SET `utf8`
+COLLATE utf8_general_ci
+COMMENT = 'Таблиця в якій відбувається співставлення аудиторій та навчальних корпусів';
+
+/*Заповнення даними*/
+
 INSERT INTO `faculty`(`name`,`pic`)
 	VALUES	('Факультет інформаційних технологій(ФІТ)','/images/maybe/default_pic.png'),
 			('Факультет нафтогазопроводів (ФНГП)','/images/maybe/default_pic.png'),
@@ -307,7 +402,11 @@ INSERT INTO `student`(`gid`)
 			(5);
 	
 INSERT INTO `student_key`(`key_name`,`key_weight`) 
-	VALUES	('name',1),
-			('surname',2),
-			('patronimic',3),
-			('number_zalik',4);
+	VALUES	('Ім\'я',1),
+			('Прізвище',2),
+			('По-батькові',3),
+			('№ залікової',4),
+			('№ телефону',5),
+			('№ та серія паспорту',6),
+			('Прізвище 2',2),
+			('№ залікової 2',4);
