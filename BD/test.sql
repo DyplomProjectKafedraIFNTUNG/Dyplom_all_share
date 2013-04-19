@@ -172,6 +172,8 @@ CREATE TABLE IF NOT EXISTS `personal_navant`(
 `tid` INTEGER(2) NOT NULL COMMENT 'Звязок навантаження з викладачем',
 `startSem` DATETIME NOT NULL COMMENT 'Дата початку семестру',
 `endSem` DATETIME NOT NULL COMMENT 'Дата кінця семестру',
+`stavka` FLOAT(2) NOT NULL COMMENT 'ставка викладача в даному семестрі',
+`planove_navant` FLOAT(2) NOT NULL COMMENT 'планове навантаження викладача в даному семестрі',
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(tid) REFERENCES `teacher`(id) 
 	ON DELETE CASCADE
@@ -644,9 +646,7 @@ INSERT INTO `teacher_key`(`key_name`,`key_weight`)
 			('Посада',4),
 			('№ телефону',5),
 			('№ та серія паспорту',6),
-			('Прізвище 2',7),
-			('Навантаження планове',8),
-			('Ставка',9);
+			('Прізвище 2',7);
 			
 INSERT INTO `teacher_key_value`(`tid`,`tkid`,`val`)
 	VALUES	(1,1,'Козак'),
@@ -739,17 +739,17 @@ INSERT INTO `teacher_key_value`(`tid`,`tkid`,`val`)
 			(10,8,'640'),
 			(10,9,'0.5');
 /*Персональні навантаження для кожного викладача*/			
-INSERT INTO `personal_navant`(`tid`,`startSem`,`endSem`)
-	VALUES	(1,'2009-09','2010-05'),
-			(2,'2009-09','2010-05'),
-			(3,'2009-09','2010-05'),
-			(4,'2009-09','2010-05'),
-			(5,'2009-09','2010-05'),
-			(6,'2009-09','2010-05'),
-			(7,'2009-09','2010-05'),
-			(8,'2009-09','2010-05'),
-			(9,'2009-09','2010-05'),
-			(10,'2009-09','2010-05'),
+INSERT INTO `personal_navant`(`tid`,`startSem`,`endSem`,`stavka`,`planove_navant`)
+	VALUES	(1,'2009-09','2010-05',0.5,850),
+			(2,'2009-09','2010-05',0.75,920),
+			(3,'2009-09','2010-05',0.2,400),
+			(4,'2009-09','2010-05',0.5,500),
+			(5,'2009-09','2010-05',0.75,640),
+			(6,'2009-09','2010-05',0.5,838),
+			(7,'2009-09','2010-05',0.5,740),
+			(8,'2009-09','2010-05',1,1124),
+			(9,'2009-09','2010-05',0.75,380),
+			(10,'2009-09','2010-05',0.5,440),
 	
 INSERT INTO `personal_navant_key`(`key_name`,`key_weight`)
 	VALUES	('Дипломне проектування(кількість студентів)',1),
