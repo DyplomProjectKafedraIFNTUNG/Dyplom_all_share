@@ -310,6 +310,7 @@ CREATE TABLE IF NOT EXISTS `users`(
 `salt` VARCHAR(32) NOT NULL COLLATE utf8_bin COMMENT 'сіль(для засолювання паролю)',
 `val_url` VARCHAR(50) NOT NULL COLLATE utf8_bin COMMENT 'адреса для активації користувача',
 `active` BOOLEAN NOT NULL DEFAULT false COMMENT 'чи підтверджено адресу електронної пошти',
+`counter` INTEGER(2) NOT NULL COMMENT 'кількість прогонів циклу при перевірці співпадіння паролів',
 PRIMARY KEY(`id`),
 UNIQUE KEY(`email`,`val_url`),
 FOREIGN KEY(ugid) REFERENCES `users_groups`(id)
@@ -454,14 +455,14 @@ INSERT INTO	`group_priviledges`(`idGroup`,`idPriv`)
 			(4,5),
 			(4,6);
 			
-INSERT INTO `users`(`ugid`,`email`,`pass`,`salt`,`val_url`,`active`)			
-	VALUES	(2,'vova@gmail.com','password1','salt','site1.com',TRUE),
-			(2,'petya@gmail.com','password2','salt','site2.com',TRUE),
-			(2,'vasya@gmail.com','password3','salt','site3.com',TRUE),
-			(2,'dima@gmail.com','password4','salt','site4.com',TRUE),
-			(3,'oleh@gmail.com','password5','salt','site5.com',TRUE),
-			(3,'igor@gmail.com','password6','salt','site6.com',TRUE),
-			(4,'ira@gmail.com','password7','salt','site7.com',TRUE);
+INSERT INTO `users`(`ugid`,`email`,`pass`,`salt`,`val_url`,`active`,`counter`)			
+	VALUES	(2,'vova@gmail.com','password1','salt','site1.com',TRUE,75),
+			(2,'petya@gmail.com','password2','salt','site2.com',TRUE,75),
+			(2,'vasya@gmail.com','password3','salt','site3.com',TRUE,75),
+			(2,'dima@gmail.com','password4','salt','site4.com',TRUE,75),
+			(3,'oleh@gmail.com','password5','salt','site5.com',TRUE,75),
+			(3,'igor@gmail.com','password6','salt','site6.com',TRUE,75),
+			(4,'ira@gmail.com','password7','salt','site7.com',TRUE,75);
 			
 /*кінець привілеїв*/
 
