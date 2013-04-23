@@ -1021,34 +1021,34 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getAllGroupsOfStudents()
 BEGIN
-SELECT K.`name` AS kname,GOS.`id`,GOS.`kid`,GOS.`sfid`,GOS.`name` as GOSname,GOS.`count_stud` FROM `groups_of_students` AS GOS RIGHT JOIN `kafedra` AS K  ON GOS.`kid` = K.`id`;
+SELECT SF.`name` AS sfname, K.`name` AS kname,GOS.`id`,GOS.`kid`,GOS.`sfid`,GOS.`name` as GOSname,GOS.`count_stud` FROM `groups_of_students` AS GOS RIGHT JOIN `kafedra` AS K  ON GOS.`kid` = K.`id` LEFT JOIN `study_form` AS SF ON GOS.`sfid` = SF.`id`;
 END;
 \\
 DELIMITER ;
 
-/*Отримати конкретну групу студентів*/
+/*Отримати групу студентів з конкретної кафедри*/
 DELIMITER \\
-CREATE PROCEDURE getKafedraById(id INT(2))
+CREATE PROCEDURE getGroupOfStudentsFromKafedra(id INT(2))
 BEGIN
-SELECT K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id` WHERE K.`id` = id;
+SELECT SF.`name` AS sfname, K.`name` AS kname,GOS.`id`,GOS.`kid`,GOS.`sfid`,GOS.`name` as GOSname,GOS.`count_stud` FROM `groups_of_students` AS GOS RIGHT JOIN `kafedra` AS K  ON GOS.`kid` = K.`id` LEFT JOIN `study_form` AS SF ON GOS.`sfid` = SF.`id` WHERE GOS.`kid` = id;
 END;
 \\
 DELIMITER ;
 
-/*Додати кафедру*/
+/*Додати групу студентів*/
 DELIMITER \\
-CREATE PROCEDURE addKafedra(fid INT(2), name VARCHAR(80), pic VARCHAR(80))
+CREATE PROCEDURE addGroupOfStudents(kid INT(2), sfid INT(2), name VARCHAR(80), cnt INT(2))
 BEGIN
-INSERT INTO `kafedra`(`fid`,`name`,`pic`) VALUES (fid,name,pic);
+INSERT INTO `groups_of_students`(`kid`,`sfid`,`name`,`count_stud`) VALUES (kid,sfid,name,cnt);
 END;
 \\
 DELIMITER ;
 
-/*Видалити кафедру*/
+/*Видалити групу студентів*/
 DELIMITER \\
-CREATE PROCEDURE removeKafedra(id INT(2))
+CREATE PROCEDURE removeGroupOfStudents(id INT(2))
 BEGIN
-DELETE FROM `kafedra` WHERE `kafedra`.`id` = id;
+DELETE FROM `groups_of_students` WHERE `groups_of_students`.`id` = id;
 END;
 \\
 DELIMITER ;
