@@ -3,8 +3,9 @@ USE `Dyplom_kafedra_calculation`;
 
 CREATE TABLE IF NOT EXISTS `faculty`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор факультету',
-`name` VARCHAR(80) NOT NULL COMMENT 'назва факультету',
-`pic` VARCHAR(80) COMMENT 'Логотип факультету, якщо такий є',
+`name` VARCHAR(255) NOT NULL COMMENT 'назва факультету',
+`pic` VARCHAR(255) COMMENT 'Логотип факультету, якщо такий є',
+`description` TEXT COMMENT 'примітки',
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
@@ -14,8 +15,9 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 CREATE TABLE IF NOT EXISTS `kafedra`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор кафедри',
 `fid` INTEGER(2) NOT NULL COMMENT 'Звязок кафедри з факультетом',
-`name` VARCHAR(80) NOT NULL COMMENT 'назва кафедри',
-`pic` VARCHAR(80) COMMENT 'Логотип кафедри, якщо такий є',
+`name` VARCHAR(255) NOT NULL COMMENT 'назва кафедри',
+`pic` VARCHAR(255) COMMENT 'Логотип кафедри, якщо такий є',
+`description` TEXT COMMENT 'примітки',
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(fid) REFERENCES `faculty`(id) 
 	ON DELETE CASCADE
@@ -27,8 +29,8 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `study_form`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор',
-`name` VARCHAR(80) NOT NULL COMMENT 'форма навчання',
-`prymitka` VARCHAR(80) COMMENT 'примітка',
+`name` VARCHAR(255) NOT NULL COMMENT 'форма навчання',
+`description` TEXT COMMENT 'примітка',
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
@@ -39,8 +41,9 @@ CREATE TABLE IF NOT EXISTS `groups_of_students`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор групи',
 `kid` INTEGER(2) NOT NULL COMMENT 'Звязок групи з кафедрою',
 `sfid` INTEGER(2) NOT NULL COMMENT 'Звязок групи з формою навчання',
-`name` VARCHAR(80) NOT NULL COMMENT 'назва групи',
+`name` VARCHAR(255) NOT NULL COMMENT 'назва групи',
 `count_stud` INTEGER(2) COMMENT 'кількість студентів у групі, якщо лінь заповнювати дані про студентів групи',
+`description` TEXT COMMENT 'примітки',
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(kid) REFERENCES `kafedra`(id) 
 	ON DELETE CASCADE
@@ -69,7 +72,7 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `student_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
+`key_name` VARCHAR(255) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
@@ -81,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `student_key_value`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
 `sid` INTEGER(2) NOT NULL COMMENT 'Звязок зі студентом',
 `skid` INTEGER(2) NOT NULL COMMENT 'Звязок із ключем',
-`val` VARCHAR(80) NOT NULL COMMENT 'тут містяться значення ключів', 
+`val` VARCHAR(255) NOT NULL COMMENT 'тут містяться значення ключів', 
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(sid) REFERENCES `student`(id) 
 	ON DELETE CASCADE
@@ -95,7 +98,7 @@ COLLATE utf8_general_ci
 COMMENT = 'Таблиця в якій зберігаються значення ключів таблиці студент';
 
 /*end of three tables for students*/
-
+/*
 CREATE TABLE IF NOT EXISTS `lesson_cycle`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор циклу',
 `name` VARCHAR(80) NOT NULL COMMENT 'назва циклу',
@@ -104,11 +107,12 @@ PRIMARY KEY(`id`)
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
 COMMENT = 'Таблиця в якій зберігаються дані про цикли предметів';
+*/
 
 CREATE TABLE IF NOT EXISTS `lessons`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор предмету',
 `kid` INTEGER(2) NOT NULL COMMENT 'звязок з кафедрою',
-`name` VARCHAR(80) NOT NULL COMMENT 'назва дисципліни',
+`name` VARCHAR(255) NOT NULL COMMENT 'назва дисципліни',
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(`kid`) REFERENCES `kafedra`(id) 
 	ON UPDATE CASCADE 
@@ -134,7 +138,7 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `teacher_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
+`key_name` VARCHAR(255) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
@@ -146,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `teacher_key_value`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
 `tid` INTEGER(2) NOT NULL COMMENT 'Звязок зі викладачем',
 `tkid` INTEGER(2) NOT NULL COMMENT 'Звязок із ключем',
-`val` VARCHAR(80) NOT NULL COMMENT 'тут містяться значення ключів', 
+`val` VARCHAR(255) NOT NULL COMMENT 'тут містяться значення ключів', 
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(tid) REFERENCES `teacher`(id) 
 	ON DELETE CASCADE
@@ -181,7 +185,7 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `personal_navant_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
+`key_name` VARCHAR(255) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
@@ -193,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `personal_navant_key_value`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
 `pnid` INTEGER(2) NOT NULL COMMENT 'Звязок зі персональним навантаженням',
 `pnkid` INTEGER(2) NOT NULL COMMENT 'Звязок із ключем',
-`val` VARCHAR(80) NOT NULL COMMENT 'тут містяться значення ключів', 
+`val` VARCHAR(255) NOT NULL COMMENT 'тут містяться значення ключів', 
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(pnid) REFERENCES `personal_navant`(id) 
 	ON DELETE CASCADE
@@ -234,7 +238,7 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 
 CREATE TABLE IF NOT EXISTS `main_navant_key`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
-`key_name` VARCHAR(20) NOT NULL COMMENT 'тут містяться назви ключів', 
+`key_name` VARCHAR(255) NOT NULL COMMENT 'тут містяться назви ключів', 
 `key_weight` INTEGER (2) NOT NULL COMMENT 'вага ключа', 
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
@@ -246,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `main_navant_key_value`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор значення',
 `mnid` INTEGER(2) NOT NULL COMMENT 'Звязок зі навантаженням',
 `mnkid` INTEGER(2) NOT NULL COMMENT 'Звязок із ключем',
-`val` VARCHAR(80) NOT NULL COMMENT 'тут містяться значення ключів', 
+`val` VARCHAR(255) NOT NULL COMMENT 'тут містяться значення ключів', 
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(mnid) REFERENCES `main_navant`(id) 
 	ON DELETE CASCADE
@@ -265,8 +269,8 @@ COMMENT = 'Таблиця в якій зберігаються значення 
 
 CREATE TABLE IF NOT EXISTS `users_groups`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'Ідентифікатор групи користувачів',
-`name` VARCHAR(30) NOT NULL COMMENT 'назва групи',
-`description` VARCHAR(30) NOT NULL COMMENT 'опис групи',
+`name` VARCHAR(255) NOT NULL COMMENT 'назва групи',
+`description` TEXT NOT NULL COMMENT 'опис групи',
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
@@ -275,8 +279,8 @@ COMMENT = 'Таблиця в якій зберігаються групи кор
 
 CREATE TABLE IF NOT EXISTS `priviledges`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'Ідентифікатор привілею',
-`name` VARCHAR(30) NOT NULL COMMENT 'назва привілею',
-`description` VARCHAR(30) NOT NULL COMMENT 'опис привілею',
+`name` VARCHAR(255) NOT NULL COMMENT 'назва привілею',
+`description` TEXT NOT NULL COMMENT 'опис привілею',
 PRIMARY KEY(`id`)
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
@@ -301,9 +305,9 @@ COMMENT = 'Таблиця в якій відбувається співстав�
 CREATE TABLE IF NOT EXISTS `users`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор користувача',
 `ugid` INTEGER(2) NOT NULL DEFAULT 2 COMMENT 'звязок з групою користувачів',
-`email` VARCHAR(30) NOT NULL COMMENT 'електронна пошта',
+`email` VARCHAR(255) NOT NULL COMMENT 'електронна пошта',
 `pass` CHAR(32) NOT NULL COLLATE utf8_bin COMMENT 'пароль',
-`salt` VARCHAR(32) NOT NULL COLLATE utf8_bin COMMENT 'сіль(для засолювання паролю)',
+`salt` CHAR(32) NOT NULL COLLATE utf8_bin COMMENT 'сіль(для засолювання паролю)',
 `val_url` VARCHAR(50) NOT NULL COLLATE utf8_bin COMMENT 'адреса для активації користувача',
 `active` BOOLEAN NOT NULL DEFAULT false COMMENT 'чи підтверджено адресу електронної пошти',
 `counter` INTEGER(2) NOT NULL COMMENT 'кількість прогонів циклу при перевірці співпадіння паролів',
@@ -318,23 +322,10 @@ COLLATE utf8_general_ci
 COMMENT = 'Таблиця в якій зберігаються користувачі';
 
 /*Таблиці для аудиторій*/
-
-CREATE TABLE IF NOT EXISTS`auditory`(
-`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор',
-`number_aud` VARCHAR(6) NOT NULL COMMENT 'номер аудиторії',
-`number_place` INTEGER(2) COMMENT 'Кількість місць',
-`descript` MEDIUMTEXT COMMENT 'опис',
-PRIMARY KEY(id),
-UNIQUE KEY(`number_aud`)
-)ENGINE = InnoDB
-DEFAULT CHARACTER SET `utf8`
-COLLATE utf8_general_ci
-COMMENT = 'Таблиця в якій зберігаються аудиторії';
-
 CREATE TABLE IF NOT EXISTS `building`(
 `id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор',
 `number_bld` VARCHAR(6) NOT NULL COMMENT 'номер корпусу',
-`description` MEDIUMTEXT NOT NULL COMMENT 'опис',
+`description` TEXT NOT NULL COMMENT 'опис',
 PRIMARY KEY(id),
 UNIQUE KEY(`number_bld`)
 )ENGINE = InnoDB
@@ -342,51 +333,22 @@ DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
 COMMENT = 'Таблиця в якій зберігаються навчальні корпуси';
 
-CREATE TABLE IF NOT EXISTS `build_auditory`(
-`id_auditory` INTEGER(2) NOT NULL COMMENT 'звязок з групами користувачів',
-`id_build` INTEGER(2) NOT NULL COMMENT 'звязок з привілеями',
-PRIMARY KEY(`id_auditory`,`id_build`),
-FOREIGN KEY(id_auditory) REFERENCES `auditory`(id)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE,
+CREATE TABLE IF NOT EXISTS`auditory`(
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор',
+`number_aud` VARCHAR(6) NOT NULL COMMENT 'номер аудиторії',
+`id_build` INTEGER(2) NOT NULL COMMENT 'звязок з корпусом',
+`number_place` INTEGER(2) COMMENT 'Кількість місць',
+`descript` TEXT COMMENT 'опис',
+PRIMARY KEY(id),
+UNIQUE KEY(`number_aud`),
 FOREIGN KEY(id_build) REFERENCES `building`(id)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
-COMMENT = 'Таблиця в якій відбувається співставлення аудиторій та навчальних корпусів';
+COMMENT = 'Таблиця в якій зберігаються аудиторії';
 
-/*Заповнення даними*/
-
-/*Аудиторії + корпуси, і їх співставлення*/
-INSERT INTO `auditory`(`number_aud`,`number_place`,`descript`)
-	VALUES	('1014',20,'Це аудиторія'),
-			('1015',20,'Це аудиторія'),
-			('1015a',15,'Це аудиторія'),
-			('1018',20,'Це аудиторія'),
-			('1114',25,'Це аудиторія'),
-			('1118',28,'Це аудиторія'),
-			('1108',20,'Це аудиторія'),
-			('1102',24,'Це аудиторія'),
-			('1214',25,'Це аудиторія'),
-			('1218',28,'Це аудиторія'),
-			('1208',20,'Це аудиторія'),
-			('1202',24,'Це аудиторія'),
-			('1314',25,'Це аудиторія'),
-			('1318',28,'Це аудиторія'),
-			('1308',20,'Це аудиторія'),
-			('1302',24,'Це аудиторія'),
-			('1415',20,'Це аудиторія'),
-			('1418',22,'Це аудиторія'),
-			('1419',26,'Це аудиторія'),
-			('1414',24,'Це аудиторія'),
-			('1514',60,'Це аудиторія'),
-			('1518',32,'Це аудиторія'),
-			('1508',20,'Це аудиторія'),
-			('1502',24,'Це аудиторія'),
-			('1503',48,'Це аудиторія');
-			
 INSERT INTO `building`(`number_bld`,`description`)
 	VALUES	(1,'1-ий корпус'),
 			(2,'2-ий корпус'),
@@ -394,33 +356,36 @@ INSERT INTO `building`(`number_bld`,`description`)
 			(4,'4-ий корпус'),
 			(5,'5-ий корпус');
 			
-INSERT INTO `build_auditory`(`id_auditory`,`id_build`)
-	VALUES	(1,1),
-			(2,1),
-			(3,1),
-			(4,1),
-			(5,1),
-			(6,1),
-			(7,1),
-			(8,1),
-			(9,1),
-			(10,1),
-			(11,1),
-			(12,1),
-			(13,1),
-			(14,1),
-			(15,1),
-			(16,1),
-			(17,1),
-			(18,1),
-			(19,1),
-			(20,1),
-			(21,1),
-			(22,1),
-			(23,1),
-			(24,1);
+INSERT INTO `auditory`(`number_aud`,`id_build`,`number_place`,`descript`)
+	VALUES	('1014',1,20,'Це аудиторія'),
+			('1015',1,20,'Це аудиторія'),
+			('1015a',1,15,'Це аудиторія'),
+			('1018',1,20,'Це аудиторія'),
+			('1114',1,25,'Це аудиторія'),
+			('1118',1,28,'Це аудиторія'),
+			('1108',1,20,'Це аудиторія'),
+			('1102',1,24,'Це аудиторія'),
+			('1214',1,25,'Це аудиторія'),
+			('1218',1,28,'Це аудиторія'),
+			('1208',1,20,'Це аудиторія'),
+			('1202',1,24,'Це аудиторія'),
+			('1314',1,25,'Це аудиторія'),
+			('1318',1,28,'Це аудиторія'),
+			('1308',1,20,'Це аудиторія'),
+			('1302',1,24,'Це аудиторія'),
+			('1415',1,20,'Це аудиторія'),
+			('1418',1,22,'Це аудиторія'),
+			('1419',1,26,'Це аудиторія'),
+			('1414',1,24,'Це аудиторія'),
+			('1514',1,60,'Це аудиторія'),
+			('1518',1,32,'Це аудиторія'),
+			('1508',1,20,'Це аудиторія'),
+			('1502',1,24,'Це аудиторія'),
+			('1503',1,48,'Це аудиторія');
 			
-/*Кінець аудиторій*/		
+
+
+			/*Кінець аудиторій*/		
 
 /*Користувачі, їх групи та права*/	
 INSERT INTO `users_groups`(`name`,`description`)
@@ -475,7 +440,7 @@ INSERT INTO `kafedra`(`fid`,`name`,`pic`)
 			(3,'Кафедра соціальних комунікацій та права','/images/maybe/default_pic.png'),
 			(3,'Кафедра державного управління та місцевого самоврядування','/images/maybe/default_pic.png');
 	
-INSERT INTO `study_form`(`name`,`prymitka`)
+INSERT INTO `study_form`(`name`,`description`)
 	VALUES	('Денна','денна(стаціонарна) форма навчання'),
 			('Заочна','заочна форма навчання');
 	
@@ -509,13 +474,13 @@ INSERT INTO `student`(`gid`)
 			
 INSERT INTO `student_key`(`key_name`,`key_weight`) 
 	VALUES	('Прізвище',1),
-			('Ім\'я',2),
-			('По-батькові',3),
-			('№ залікової',4),
-			('№ телефону',5),
-			('№ та серія паспорту',6),
+			('Ім\'я',1),
+			('По-батькові',1),
+			('№ залікової',1),
+			('№ телефону',1),
+			('№ та серія паспорту',1),
 			('Прізвище 2',2),
-			('№ залікової 2',4);
+			('№ залікової 2',2);
 			
 INSERT INTO `student_key_value`(`sid`,`skid`,`val`)
 	VALUES	(1,1,'Клюфінський'),
@@ -587,10 +552,12 @@ INSERT INTO `student_key_value`(`sid`,`skid`,`val`)
 			(10,4,'0000010'),
 			(10,5,'+380500000010'),
 			(10,6,'СЕ 000010');
+/*
 INSERT INTO `lesson_cycle`(`name`) 
 		VALUES	('Цикл 1 - гуманітарні дисципліни'),
 				('Цикл 2 - професійні дисципліни'),
 				('Цикл 3 - самостіно вибрані дисципліни');
+*/
 INSERT INTO `lessons`(`kid`,`name`)
 		VALUES	(1,'Організація баз даних та знань'),
 				(1,'Операційні ситеми'),
@@ -634,16 +601,27 @@ INSERT INTO `teacher`(`kid`)
 			(4),
 			(4),
 			(5),
+			(5),
+			(1),
+			(1),
+			(2),
+			(2),
+			(3),
+			(3),
+			(4),
+			(4),
+			(5),
 			(5);
 
 INSERT INTO `teacher_key`(`key_name`,`key_weight`) 
 	VALUES	('Прізвище',1),
-			('Ім\'я',2),
-			('По-батькові',3),
-			('Посада',4),
-			('№ телефону',5),
-			('№ та серія паспорту',6),
-			('Прізвище 2',7);
+			('Ім\'я',1),
+			('По-батькові',1),
+			('Посада',1),
+			('№ телефону',1),
+			('№ та серія паспорту',1),
+			('Прізвище 2',2),
+			('№ телефону 2',2);
 			
 INSERT INTO `teacher_key_value`(`tid`,`tkid`,`val`)
 	VALUES	(1,1,'Козак'),
@@ -714,7 +692,77 @@ INSERT INTO `teacher_key_value`(`tid`,`tkid`,`val`)
 			(10,3,'Василівна'),
 			(10,4,'асистент (за сумісництвом)'),
 			(10,5,'+380930000010'),
-			(10,6,'СЕ 000010');
+			(10,6,'СЕ 000010'),
+			/*new one*/
+			(11,1,'Шекета'),
+			(11,2,'Василь'),
+			(11,3,'Іванович'),
+			(11,4,'доцент'),
+			(11,5,'+380930000011'),
+			(11,6,'СЕ 000011'),
+			/*new one*/
+			(12,1,'Іщеряков'),
+			(12,2,'Сергій'),
+			(12,3,'Михайлович'),
+			(12,4,'доцент (за сумісництвом)'),
+			(12,5,'+380930000012'),
+			(12,6,'СЕ 000012'),
+			/*new one*/
+			(13,1,'Дитко'),
+			(13,2,'Тарас'),
+			(13,3,'Володимирович'),
+			(13,4,'асистент (за сумісництвом)'),
+			(13,5,'+380930000013'),
+			(13,6,'СЕ 000013'),
+			/*new one*/
+			(14,1,'Тимків'),
+			(14,2,'Дмитро'),
+			(14,3,'Федорович'),
+			(14,4,'професор (за сумісництвом)'),
+			(14,5,'+380930000014'),
+			(14,6,'СЕ 000014'),
+			/*new one*/
+			(15,1,'Бандура'),
+			(15,2,'Вікторія'),
+			(15,3,'Валерівна'),
+			(15,4,'доцент (за сумісництвом)'),
+			(15,5,'+380930000015'),
+			(15,6,'СЕ 000015'),
+			/*new one*/
+			(16,1,'Яцишин'),
+			(16,2,'Микола'),
+			(16,3,'Миколайович'),
+			(16,4,'доцент (за сумісництвом)'),
+			(16,5,'+380930000016'),
+			(16,6,'СЕ 000016'),
+			/*new one*/
+			(17,1,'Броновський'),
+			(17,2,'Ігор'),
+			(17,3,'Васильович'),
+			(17,4,'асистент (за сумісництвом)'),
+			(17,5,'+380930000017'),
+			(17,6,'СЕ 000017'),
+			/*new one*/
+			(18,1,'Вовк'),
+			(18,2,'Роман'),
+			(18,3,'Богданович'),
+			(18,4,'доцент'),
+			(18,5,'+380930000018'),
+			(18,6,'СЕ 000018'),
+			/*new one*/
+			(19,1,'Жук'),
+			(19,2,'Василь'),
+			(19,3,'Васильович'),
+			(19,4,'асистент (за сумісництвом)'),
+			(19,5,'+380930000019'),
+			(19,6,'СЕ 000019'),
+			/*new one*/
+			(20,1,'Кріт'),
+			(20,2,'Олександр'),
+			(20,3,'Ростиславович'),
+			(20,4,'Професор'),
+			(20,5,'+380930000020'),
+			(20,6,'СЕ 000020');
 			
 /*Персональні навантаження для кожного викладача*/			
 INSERT INTO `personal_navant`(`tid`,`startSem`,`endSem`,`stavka`,`planove_navant`)
@@ -945,16 +993,16 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getFacultyById(id INT(2))
 BEGIN
-SELECT `id`,`name`,`pic` FROM `faculty` WHERE `faculty`.`id` = id;
+SELECT `id`,`name`,`pic`,`description` FROM `faculty` WHERE `faculty`.`id` = id;
 END;
 \\
 DELIMITER ;
 
 /*Додати факультет*/
 DELIMITER \\
-CREATE PROCEDURE addFaculty(name VARCHAR(80), pic VARCHAR(80))
+CREATE PROCEDURE addFaculty(name VARCHAR(255), pic VARCHAR(255), descript TEXT)
 BEGIN
-INSERT INTO `faculty`(`name`,`pic`) VALUES (name,pic);
+INSERT INTO `faculty`(`name`,`pic`,`description`) VALUES (name,pic, descript);
 END;
 \\
 DELIMITER ;
@@ -974,7 +1022,7 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getAllKafedra()
 BEGIN
-SELECT K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id`;
+SELECT K.`description`,K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id`;
 END;
 \\
 DELIMITER ;
@@ -983,7 +1031,7 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getKafedraById(id INT(2))
 BEGIN
-SELECT K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id` WHERE K.`id` = id;
+SELECT K.`description`,K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id` WHERE K.`id` = id;
 END;
 \\
 DELIMITER ;
@@ -992,16 +1040,16 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getAllKafedrasFromFaculty(id INT(2))
 BEGIN
-SELECT K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id` WHERE K.`fid` = id;
+SELECT K.`description`,K.`id`,K.`fid`,K.`name` AS kname,F.`name` AS fname,K.`pic` FROM `faculty` AS F RIGHT JOIN `kafedra` AS K ON K.`fid` = F.`id` WHERE K.`fid` = id;
 END;
 \\
 DELIMITER ;
 
 /*Додати кафедру*/
 DELIMITER \\
-CREATE PROCEDURE addKafedra(fid INT(2), name VARCHAR(80), pic VARCHAR(80))
+CREATE PROCEDURE addKafedra(fid INT(2), name VARCHAR(255), pic VARCHAR(255), descript TEXT)
 BEGIN
-INSERT INTO `kafedra`(`fid`,`name`,`pic`) VALUES (fid,name,pic);
+INSERT INTO `kafedra`(`fid`,`name`,`pic`,`description`) VALUES (fid,name,pic,descript);
 END;
 \\
 DELIMITER ;
@@ -1030,16 +1078,16 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getGroupOfStudentsFromKafedra(id INT(2))
 BEGIN
-SELECT SF.`name` AS sfname, K.`name` AS kname,GOS.`id`,GOS.`kid`,GOS.`sfid`,GOS.`name` as GOSname,GOS.`count_stud` FROM `groups_of_students` AS GOS RIGHT JOIN `kafedra` AS K  ON GOS.`kid` = K.`id` LEFT JOIN `study_form` AS SF ON GOS.`sfid` = SF.`id` WHERE GOS.`kid` = id;
+SELECT SF.`description`,SF.`name` AS sfname, K.`name` AS kname,GOS.`id`,GOS.`kid`,GOS.`sfid`,GOS.`name` as GOSname,GOS.`count_stud` FROM `groups_of_students` AS GOS RIGHT JOIN `kafedra` AS K  ON GOS.`kid` = K.`id` LEFT JOIN `study_form` AS SF ON GOS.`sfid` = SF.`id` WHERE GOS.`kid` = id;
 END;
 \\
 DELIMITER ;
 
 /*Додати групу студентів*/
 DELIMITER \\
-CREATE PROCEDURE addGroupOfStudents(kid INT(2), sfid INT(2), name VARCHAR(80), cnt INT(2))
+CREATE PROCEDURE addGroupOfStudents(kid INT(2), sfid INT(2), name VARCHAR(255), cnt INT(2), descript TEXT)
 BEGIN
-INSERT INTO `groups_of_students`(`kid`,`sfid`,`name`,`count_stud`) VALUES (kid,sfid,name,cnt);
+INSERT INTO `groups_of_students`(`kid`,`sfid`,`name`,`count_stud`,`description`) VALUES (kid,sfid,name,cnt,descript);
 END;
 \\
 DELIMITER ;
@@ -1049,6 +1097,106 @@ DELIMITER \\
 CREATE PROCEDURE removeGroupOfStudents(id INT(2))
 BEGIN
 DELETE FROM `groups_of_students` WHERE `groups_of_students`.`id` = id;
+END;
+\\
+DELIMITER ;
+
+/* ========== L E S S O N S ========== */
+
+/*Отримати усі пари*/
+DELIMITER \\
+CREATE PROCEDURE getAllLessons()
+BEGIN
+SELECT K.`name` AS kname, L.`id`,L.`kid`,L.`name` FROM `lessons` as L RIGHT JOIN `kafedra` AS K ON L.`kid` = K.`id`;
+END;
+\\
+DELIMITER ;
+
+/*Отримати предмети з конкретної кафедри*/
+DELIMITER \\
+CREATE PROCEDURE getLessonsFromKafedra(id INT(2))
+BEGIN
+SELECT K.`name` AS kname, L.`id`,L.`kid`,L.`name` FROM `lessons` as L RIGHT JOIN `kafedra` AS K ON L.`kid` = K.`id` WHERE K.`id`= id;
+END;
+\\
+DELIMITER ;
+
+/*Додати пару*/
+DELIMITER \\
+CREATE PROCEDURE addLesson(kid INT(2), name VARCHAR(80))
+BEGIN
+INSERT INTO `lessons`(`kid`,`name`) VALUES (kid,name);
+END;
+\\
+DELIMITER ;
+
+/*Видалити пару*/
+DELIMITER \\
+CREATE PROCEDURE removeLesson(id INT(2))
+BEGIN
+DELETE FROM `lessons` WHERE `lessons`.`id` = id;
+END;
+\\
+DELIMITER ;
+
+/* ========== A U D I T O R Y ========== */
+
+DELIMITER \\
+CREATE PROCEDURE addAuditory(audNum VARCHAR(6), build INT(2), place INT(2), descr TEXT)
+BEGIN
+INSERT INTO `auditory`(`number_aud`,`id_build`,`number_place`,`descript`) VALUES (audNum, build, place, descr);
+END;
+\\
+DELIMITER ;
+
+DELIMITER \\
+CREATE PROCEDURE addBuilding(numbBld VARCHAR(6), descr TEXT)
+BEGIN
+INSERT INTO `building`(`number_bld`,`descript`) VALUES (numBld, descr);
+END;
+\\
+DELIMITER ;
+/* ========== U S E R S ========== */
+
+/*insert new user BY DEFAULT PRIVILEDGES USER ! into db*/
+
+DELIMITER \\
+CREATE PROCEDURE add_user(email VARCHAR(30), pass CHAR(32), salt VARCHAR(30), val_url VARCHAR(50), cnt INTEGER(2))
+BEGIN
+INSERT INTO `users`(`ugid`,`email`,`pass`,`salt`,`val_url`,`active`,`counter`) VALUES (default,email,pass,salt,val_url,default,cnt);
+END;
+\\
+DELIMITER ;
+
+/*set user active by validate url*/
+
+DELIMITER \\
+CREATE PROCEDURE validate_user(val_urli VARCHAR(50))
+BEGIN
+DECLARE user_id INT DEFAULT '0';
+SELECT `id` INTO user_id FROM `users` WHERE `users`.`val_url` = val_urli;
+IF user_id THEN
+UPDATE `users` SET `active` = true WHERE `id` = user_id;
+END IF;
+SELECT `email` FROM `users` WHERE `users`.`id` = user_id;
+END;
+\\
+DELIMITER ;
+
+/* ========== S T U D E N T S ========== */
+
+DELIMITER \\
+CREATE PROCEDURE getAllStudents()
+BEGIN
+SELECT GOS.`name`,S.`id`,SK.`id`,SK.`key_name`,SK.`key_weight`,SKV.`id`,SKV.`sid`,SKV.`skid`,SKV.`val` FROM `student` AS S LEFT JOIN `student_key_value` AS SKV ON S.id = SKV.sid LEFT JOIN `student_key` AS SK ON SK.id = SKV.skid INNER JOIN `groups_of_students` AS GOS ON S.`gid` = GOS.`id`;
+END;
+\\
+DELIMITER ;
+
+DELIMITER \\
+CREATE PROCEDURE getStudentsByGroup(gosId INT(2))
+BEGIN
+SELECT GOS.`name`,S.`id`,SK.`id`,SK.`key_name`,SK.`key_weight`,SKV.`id`,SKV.`sid`,SKV.`skid`,SKV.`val` FROM `student` AS S LEFT JOIN `student_key_value` AS SKV ON S.id = SKV.sid LEFT JOIN `student_key` AS SK ON SK.id = SKV.skid INNER JOIN `groups_of_students` AS GOS ON S.`gid` = GOS.`id` WHERE GOS.`id` = gosId;
 END;
 \\
 DELIMITER ;
