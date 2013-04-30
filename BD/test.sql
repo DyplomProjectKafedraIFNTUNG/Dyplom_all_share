@@ -972,8 +972,8 @@ INSERT INTO `student_key_value`(`sid`,`skid`,`val`)
 			(50,3,'Усович'),
 			(50,4,'0000050'),
 			(50,5,'+380500000050'),
-			(50,6,'СЕ 000050');
-			(50,9,'img/students/defPic.jpg'),
+			(50,6,'СЕ 000050'),
+			(50,9,'img/students/defPic.jpg');
 /*
 INSERT INTO `lesson_cycle`(`name`) 
 		VALUES	('Цикл 1 - гуманітарні дисципліни'),
@@ -1204,7 +1204,7 @@ INSERT INTO `teacher_key_value`(`tid`,`tkid`,`val`)
 			(20,3,'Ростиславович'),
 			(20,4,'Професор'),
 			(20,5,'+380930000020'),
-			(20,6,'СЕ 000020')
+			(20,6,'СЕ 000020'),
 			(20,9,'img/teachers/defPic.jpg');
 			
 /*Персональні навантаження для кожного викладача*/			
@@ -1450,6 +1450,15 @@ END;
 \\
 DELIMITER ;
 
+/*Оновити факультет*/
+DELIMITER \\
+CREATE PROCEDURE updateFaculty(idn INT(2), name VARCHAR(255), pic VARCHAR(255), descript TEXT)
+BEGIN
+UPDATE `faculty` SET `name` = name, `pic` = pic, `description` = descript WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
 /*Видалити факультет*/
 DELIMITER \\
 CREATE PROCEDURE removeFaculty(id INT(2))
@@ -1497,6 +1506,15 @@ END;
 \\
 DELIMITER ;
 
+/*Оновити(редагувати) кафедру*/
+DELIMITER \\
+CREATE PROCEDURE updateKafedra(idn INT(2), fid INT(2), name VARCHAR(255), pic VARCHAR(255), descript TEXT)
+BEGIN
+UPDATE `kafedra` SET `fid` = fid,`name` = name,`pic` = pic,`description` = descript WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
 /*Видалити кафедру*/
 DELIMITER \\
 CREATE PROCEDURE removeKafedra(id INT(2))
@@ -1535,6 +1553,15 @@ END;
 \\
 DELIMITER ;
 
+/*Оновити групу студентів*/
+DELIMITER \\
+CREATE PROCEDURE updateGroupOfStudents(idn INT(2), kid INT(2), sfid INT(2), name VARCHAR(255), cnt INT(2), descript TEXT)
+BEGIN
+UPDATE `groups_of_students` SET `kid` = kid,`sfid` = sfid,`name` = name,`count_stud` = cnt,`description` = descript WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
 /*Видалити групу студентів*/
 DELIMITER \\
 CREATE PROCEDURE removeGroupOfStudents(id INT(2))
@@ -1546,7 +1573,7 @@ DELIMITER ;
 
 /* ========== L E S S O N S ========== */
 
-/*Отримати усі пари*/
+/*Отримати усі предмети*/
 DELIMITER \\
 CREATE PROCEDURE getAllLessons()
 BEGIN
@@ -1564,7 +1591,7 @@ END;
 \\
 DELIMITER ;
 
-/*Додати пару*/
+/*Додати предмет*/
 DELIMITER \\
 CREATE PROCEDURE addLesson(kid INT(2), name VARCHAR(80))
 BEGIN
@@ -1573,7 +1600,16 @@ END;
 \\
 DELIMITER ;
 
-/*Видалити пару*/
+/*Оновити предмет*/
+DELIMITER \\
+CREATE PROCEDURE updateLesson(idn INT(2), kid INT(2), name VARCHAR(80))
+BEGIN
+UPDATE `lessons` SET `kid` = kid,`name` = name WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
+/*Видалити предмет*/
 DELIMITER \\
 CREATE PROCEDURE removeLesson(id INT(2))
 BEGIN
@@ -1593,12 +1629,47 @@ END;
 DELIMITER ;
 
 DELIMITER \\
+CREATE PROCEDURE removeAuditory(idn INT(2))
+BEGIN
+DELETE FROM `auditory` WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
+DELIMITER \\
+CREATE PROCEDURE updateAuditory(idn INT(2), audNum VARCHAR(6), build INT(2), place INT(2), descr TEXT)
+BEGIN
+UPDATE `auditory` SET `number_aud` = audNum, `id_build` = build, `number_place` = place,`descript` = descr WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
+/* ========== B U I L D I N G ==========*/
+
+DELIMITER \\
 CREATE PROCEDURE addBuilding(numbBld VARCHAR(6), descr TEXT)
 BEGIN
 INSERT INTO `building`(`number_bld`,`descript`) VALUES (numBld, descr);
 END;
 \\
 DELIMITER ;
+
+DELIMITER \\
+CREATE PROCEDURE removeBuilding()
+BEGIN
+DELETE FROM `building` WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
+DELIMITER \\
+CREATE PROCEDURE updateBuilding(numbBld VARCHAR(6), descr TEXT, idn iNT(2))
+BEGIN
+UPDATE `building` SET `number_bld` = numBld,`descript` = descr WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+
 /* ========== U S E R S ========== */
 
 /*insert new user BY DEFAULT PRIVILEDGES USER ! into db*/
@@ -1645,26 +1716,34 @@ END;
 DELIMITER ;
 
 /* =========== T E A C H E R   L O A D ========== */
+/*Персональне навантаження викладача*/
 DELIMITER \\
-CREATE PROCEDURE getTeachersLoad()
+CREATE PROCEDURE getTeachersLoadById(idt INT(2))
 BEGIN
 SELECT	T.`id`,T.`kid`,
 		TKV.`id`,TKV.`tid`,TKV.`tkid`,TKV.`val`,
 		TK.`id`, TK.`key_name`,TK.`key_weight`,
 		PN.`id`,PN.`tid`,PN.`startSem`,PN.`endSem`,PN.`stavka`,PN.`planove_navant`,
 		PNKV.`id`,PNKV.`pnid`,PNKV.`pnkid`,PNKV.`val`,
-		PNK.`id`, PNK.`key_name`,PNK.`key_weight`,
+		PNK.`id`, PNK.`key_name`,PNK.`key_weight`/*,
 		MN.`id`, MN.`tid`,MN.`startSem`, MN.`endSem`,
 		MNKV.`id`, MNKV.`mnid`, MNKV.`mnkid`, MNKV.`val`,
-		MNK.`id`, MNK.`key_name`, MNK.`key_weight`
+		MNK.`id`, MNK.`key_name`, MNK.`key_weight`*/
 		FROM `teacher` AS T INNER JOIN `teacher_key_value` AS TKV ON T.`id` = TKV.`tid`
 							INNER JOIN `teacher_key` AS TK ON TKV.`tkid` = TK.`id`
 							INNER JOIN `personal_navant` AS PN ON T.`id` = PN.`tid`
 							INNER JOIN `personal_navant_key_value` AS PNKV ON PN.`id` = PNKV.`pnid`
 							INNER JOIN `personal_navant_key` AS PNK ON PNKV.`pnkid` = PNK.`id`
-							INNER JOIN `main_navant` AS MN ON T.`id` = MN.`tid`
-							INNER JOIN `main_navant_key_value` AS MNKV ON MN.`id` = MNKV.`mnid`
-							INNER JOIN `main_navant_key` AS MNK ON MNKV.`mnkid` = MNK.`id`;
+							WHERE T.`id` = idt;
 END;
 \\
 DELIMITER ;
+/*
+SELECT GOS.`name`,MN.`id`,MN.`tid`,MN.`lid`,MN.`gid`,L.`name`, MNKV.`val` AS ispyt
+									FROM `main_navant` AS MN
+									INNER JOIN `teacher` AS T ON T.`id` = MN.`tid`
+									INNER JOIN `groups_of_students` AS GOS ON GOS.`id` = MN.`gid`
+									INNER JOIN `lessons` AS L ON L.`id` = MN.`lid`,
+									INNER JOIN `main_navant_key_value` AS MNKV ON MN.`id` = MNKV.`mnid`,
+									INNER JOIN `main_navant_key` AS MNK ON MNKV.`mnkid` = MNK.`id`,
+									WHERE MNKV.`mnkid` = 8;*/
