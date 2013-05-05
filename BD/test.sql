@@ -1747,3 +1747,16 @@ SELECT GOS.`name`,MN.`id`,MN.`tid`,MN.`lid`,MN.`gid`,L.`name`, MNKV.`val` AS isp
 									INNER JOIN `main_navant_key_value` AS MNKV ON MN.`id` = MNKV.`mnid`,
 									INNER JOIN `main_navant_key` AS MNK ON MNKV.`mnkid` = MNK.`id`,
 									WHERE MNKV.`mnkid` = 8;*/
+									
+
+/* i t s  w o r k i n  g*/
+
+SELECT	T.`id`,T.`kid`,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		TKV3.`val` AS posada
+		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4);
