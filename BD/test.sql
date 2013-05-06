@@ -1698,19 +1698,107 @@ END;
 DELIMITER ;
 
 /* ========== S T U D E N T S ========== */
-
+/*Отримати дані про всіх студентів*/
 DELIMITER \\
 CREATE PROCEDURE getAllStudents()
 BEGIN
-SELECT GOS.`name`,S.`id`,SK.`id`,SK.`key_name`,SK.`key_weight`,SKV.`id`,SKV.`sid`,SKV.`skid`,SKV.`val` FROM `student` AS S LEFT JOIN `student_key_value` AS SKV ON S.id = SKV.sid LEFT JOIN `student_key` AS SK ON SK.id = SKV.skid INNER JOIN `groups_of_students` AS GOS ON S.`gid` = GOS.`id`;
+SELECT	S.`id`,S.`gid`,
+		SKV.`val` AS surn,
+		SKV1.`val` AS name,
+		SKV2.`val` AS patronimic,
+		SKV3.`val` AS zalikova,
+		SKV4.`val` AS mobNum,
+		SKV5.`val` AS passport,
+		SKV6.`val` AS img,
+		GOS.`name` as grp
+		FROM `student` S
+		LEFT JOIN `student_key_value` SKV ON(S.`id` = SKV.`sid` AND SKV.`skid` = 1)
+		LEFT JOIN `student_key_value` SKV1 ON(S.`id` = SKV1.`sid` AND SKV1.`skid` = 2)
+		LEFT JOIN `student_key_value` SKV2 ON(S.`id` = SKV2.`sid` AND SKV2.`skid` = 3)
+		LEFT JOIN `student_key_value` SKV3 ON(S.`id` = SKV3.`sid` AND SKV3.`skid` = 4)
+		LEFT JOIN `student_key_value` SKV4 ON(S.`id` = SKV4.`sid` AND SKV4.`skid` = 5)
+		LEFT JOIN `student_key_value` SKV5 ON(S.`id` = SKV5.`sid` AND SKV5.`skid` = 6)
+		LEFT JOIN `student_key_value` SKV6 ON(S.`id` = SKV6.`sid` AND SKV6.`skid` = 9)
+		LEFT JOIN `groups_of_students` GOS ON GOS.`id` = S.`gid`;
 END;
 \\
 DELIMITER ;
 
+/*Отримати дані про всіх студентів з конкретної групи*/
 DELIMITER \\
-CREATE PROCEDURE getStudentsByGroup(gosId INT(2))
+CREATE PROCEDURE getStudentsByGroup(grp INT(2))
 BEGIN
-SELECT GOS.`name`,S.`id`,SK.`id`,SK.`key_name`,SK.`key_weight`,SKV.`id`,SKV.`sid`,SKV.`skid`,SKV.`val` FROM `student` AS S LEFT JOIN `student_key_value` AS SKV ON S.id = SKV.sid LEFT JOIN `student_key` AS SK ON SK.id = SKV.skid INNER JOIN `groups_of_students` AS GOS ON S.`gid` = GOS.`id` WHERE GOS.`id` = gosId;
+SELECT	S.`id`,S.`gid`,
+		SKV.`val` AS surn,
+		SKV1.`val` AS name,
+		SKV2.`val` AS patronimic,
+		SKV3.`val` AS zalikova,
+		SKV4.`val` AS mobNum,
+		SKV5.`val` AS passport,
+		SKV6.`val` AS img,
+		GOS.`name` as grp
+		FROM `student` S
+		LEFT JOIN `student_key_value` SKV ON(S.`id` = SKV.`sid` AND SKV.`skid` = 1)
+		LEFT JOIN `student_key_value` SKV1 ON(S.`id` = SKV1.`sid` AND SKV1.`skid` = 2)
+		LEFT JOIN `student_key_value` SKV2 ON(S.`id` = SKV2.`sid` AND SKV2.`skid` = 3)
+		LEFT JOIN `student_key_value` SKV3 ON(S.`id` = SKV3.`sid` AND SKV3.`skid` = 4)
+		LEFT JOIN `student_key_value` SKV4 ON(S.`id` = SKV4.`sid` AND SKV4.`skid` = 5)
+		LEFT JOIN `student_key_value` SKV5 ON(S.`id` = SKV5.`sid` AND SKV5.`skid` = 6)
+		LEFT JOIN `student_key_value` SKV6 ON(S.`id` = SKV6.`sid` AND SKV6.`skid` = 9)
+		LEFT JOIN `groups_of_students` GOS ON GOS.`id` = S.`gid`
+		WHERE GOS.`id` = grp;
+END;
+\\
+DELIMITER ;
+
+/* =========== T E A C H E R ========== */
+/*Отримати дані про всіх викладачів*/
+DELIMITER \\
+CREATE PROCEDURE getAllTeachers()
+BEGIN
+SELECT	T.`id`,T.`kid`,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		TKV3.`val` AS posada,
+		TKV4.`val` AS mobPhn,
+		TKV5.`val` AS passport,
+		TKV6.`val` AS img,
+		K.`name` AS kafedra
+		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
+						LEFT JOIN `teacher_key_value` TKV4 ON(T.`id` = TKV4.`tid` AND TKV4.`tkid`=5)
+						LEFT JOIN `teacher_key_value` TKV5 ON(T.`id` = TKV5.`tid` AND TKV5.`tkid`=6)
+						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
+						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`;
+END;
+\\
+DELIMITER ;
+
+/*Отримати дані про всіх викладачів з конкретної кафедри*/
+DELIMITER \\
+CREATE PROCEDURE getTeachersByKaf(kaf INT(2))
+BEGIN
+SELECT	T.`id`,T.`kid`,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		TKV3.`val` AS posada,
+		TKV4.`val` AS mobPhn,
+		TKV5.`val` AS passport,
+		TKV6.`val` AS img,
+		K.`name` AS kafedra
+		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
+						LEFT JOIN `teacher_key_value` TKV4 ON(T.`id` = TKV4.`tid` AND TKV4.`tkid`=5)
+						LEFT JOIN `teacher_key_value` TKV5 ON(T.`id` = TKV5.`tid` AND TKV5.`tkid`=6)
+						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
+						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`
+						WHERE K.`id` = kaf;
 END;
 \\
 DELIMITER ;
@@ -1747,16 +1835,3 @@ SELECT GOS.`name`,MN.`id`,MN.`tid`,MN.`lid`,MN.`gid`,L.`name`, MNKV.`val` AS isp
 									INNER JOIN `main_navant_key_value` AS MNKV ON MN.`id` = MNKV.`mnid`,
 									INNER JOIN `main_navant_key` AS MNK ON MNKV.`mnkid` = MNK.`id`,
 									WHERE MNKV.`mnkid` = 8;*/
-									
-
-/* i t s  w o r k i n  g*/
-
-SELECT	T.`id`,T.`kid`,
-		TKV.`val` AS surname,
-		TKV1.`val` AS name,
-		TKV2.`val` AS patronimic,
-		TKV3.`val` AS posada
-		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
-						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
-						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
-						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4);
