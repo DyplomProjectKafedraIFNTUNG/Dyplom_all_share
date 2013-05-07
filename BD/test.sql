@@ -973,7 +973,407 @@ INSERT INTO `student_key_value`(`sid`,`skid`,`val`)
 			(50,4,'0000050'),
 			(50,5,'+380500000050'),
 			(50,6,'СЕ 000050'),
-			(50,9,'img/students/defPic.jpg');
+			(50,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(51,1,'Шухевич'),
+			(51,2,'Роман'),
+			(51,3,'Добромислович'),
+			(51,4,'0000051'),
+			(51,5,'+380500000051'),
+			(51,6,'СЕ 000051'),
+			(51,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(52,1,'Петренко'),
+			(52,2,'Петро'),
+			(52,3,'Петрович'),
+			(52,4,'0000052'),
+			(52,5,'+380500000052'),
+			(52,6,'СЕ 000052'),
+			(52,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(53,1,'Іваненко'),
+			(53,2,'Іван'),
+			(53,3,'Іванович'),
+			(53,4,'0000053'),
+			(53,5,'+380500000053'),
+			(53,6,'СЕ 000053'),
+			(53,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(54,1,'Богданенко'),
+			(54,2,'Богдан'),
+			(54,3,'Богданович'),
+			(54,4,'0000054'),
+			(54,5,'+380500000054'),
+			(54,6,'СЕ 000054'),
+			(54,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(55,1,'Ігоренко'),
+			(55,2,'Ігор'),
+			(55,3,'Ігорович'),
+			(55,4,'0000055'),
+			(55,5,'+380500000055'),
+			(55,6,'СЕ 000055'),
+			(55,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(56,1,'Віталенко'),
+			(56,2,'Віталіна'),
+			(56,3,'Віталіївна'),
+			(56,4,'0000056'),
+			(56,5,'+380500000056'),
+			(56,6,'СЕ 000056'),
+			(56,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(57,1,'Азарянська'),
+			(57,2,'Аврора'),
+			(57,3,'Валеріївна'),
+			(57,4,'0000057'),
+			(57,5,'+380500000057'),
+			(57,6,'СЕ 000057'),
+			(57,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(58,1,'Буха'),
+			(58,2,'Аніта'),
+			(58,3,'Вікторівна'),
+			(58,4,'0000058'),
+			(58,5,'+380500000058'),
+			(58,6,'СЕ 000058'),
+			(58,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(59,1,'Мала'),
+			(59,2,'Варвара'),
+			(59,3,'Борисівна'),
+			(59,4,'0000059'),
+			(59,5,'+380500000059'),
+			(59,6,'СЕ 000059'),
+			(59,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(60,1,'Смирнова'),
+			(60,2,'Віолета'),
+			(60,3,'Бенедиктівна'),
+			(60,4,'0000060'),
+			(60,5,'+380500000060'),
+			(60,6,'СЕ 000060'),
+			(60,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(61,1,'Жабрук'),
+			(61,2,'Гордiан'),
+			(61,3,'Добромислович'),
+			(61,4,'0000061'),
+			(61,5,'+380500000061'),
+			(61,6,'СЕ 000061'),
+			(61,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(62,1,'Жадов'),
+			(62,2,'Петро'),
+			(62,3,'Гордiанович'),
+			(62,4,'0000062'),
+			(62,5,'+380500000062'),
+			(62,6,'СЕ 000062'),
+			(62,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(63,1,'Заболотний'),
+			(63,2,'Даниїл'),
+			(63,3,'Іванович'),
+			(63,4,'0000063'),
+			(63,5,'+380500000063'),
+			(63,6,'СЕ 000063'),
+			(63,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(64,1,'Богданенко'),
+			(64,2,'Богдан'),
+			(64,3,'Даниїлович'),
+			(64,4,'0000064'),
+			(64,5,'+380500000064'),
+			(64,6,'СЕ 000064'),
+			(64,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(65,1,'Ігоренко'),
+			(65,2,'Євгенiй'),
+			(65,3,'Ігорович'),
+			(65,4,'0000065'),
+			(65,5,'+380500000065'),
+			(65,6,'СЕ 000065'),
+			(65,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(66,1,'Заборських'),
+			(66,2,'Віталіна'),
+			(66,3,'Євгенiївна'),
+			(66,4,'0000066'),
+			(66,5,'+380500000066'),
+			(66,6,'СЕ 000066'),
+			(66,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(67,1,'Азарянська'),
+			(67,2,'Євиласiй'),
+			(67,3,'Валеріївна'),
+			(67,4,'0000067'),
+			(67,5,'+380500000067'),
+			(67,6,'СЕ 000067'),
+			(67,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(68,1,'Буха'),
+			(68,2,'Аніта'),
+			(68,3,'Євиласiївна'),
+			(68,4,'0000068'),
+			(68,5,'+380500000068'),
+			(68,6,'СЕ 000068'),
+			(68,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(69,1,'Завадська'),
+			(69,2,'Iакисхола'),
+			(69,3,'Борисівна'),
+			(69,4,'0000069'),
+			(69,5,'+380500000069'),
+			(69,6,'СЕ 000069'),
+			(69,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(70,1,'Пука'),
+			(70,2,'Віолета'),
+			(70,3,'Назарiївна'),
+			(70,4,'0000070'),
+			(70,5,'+380500000070'),
+			(70,6,'СЕ 000070'),
+			(70,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(71,1,'Мовчан'),
+			(71,2,'Никанор'),
+			(71,3,'Добромислович'),
+			(71,4,'0000071'),
+			(71,5,'+380500000071'),
+			(71,6,'СЕ 000071'),
+			(71,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(72,1,'Дахно'),
+			(72,2,'Петро'),
+			(72,3,'Никанорович'),
+			(72,4,'0000072'),
+			(72,5,'+380500000072'),
+			(72,6,'СЕ 000072'),
+			(72,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(73,1,'Тихун'),
+			(73,2,'Iларiй'),
+			(73,3,'Іванович'),
+			(73,4,'0000073'),
+			(73,5,'+380500000073'),
+			(73,6,'СЕ 000073'),
+			(73,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(74,1,'Ветух'),
+			(74,2,'Богдан'),
+			(74,3,'Iларiйович'),
+			(74,4,'0000074'),
+			(74,5,'+380500000074'),
+			(74,6,'СЕ 000074'),
+			(74,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(75,1,'Гармаш'),
+			(75,2,'Iнокентiй'),
+			(75,3,'Ігорович'),
+			(75,4,'0000075'),
+			(75,5,'+380500000075'),
+			(75,6,'СЕ 000075'),
+			(75,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(76,1,'Гончар'),
+			(76,2,'Iнокентiя'),
+			(76,3,'Євгенiївна'),
+			(76,4,'0000076'),
+			(76,5,'+380500000076'),
+			(76,6,'СЕ 000076'),
+			(76,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(77,1,'Сосюра'),
+			(77,2,'Iраклiя'),
+			(77,3,'Валеріївна'),
+			(77,4,'0000077'),
+			(77,5,'+380500000077'),
+			(77,6,'СЕ 000077'),
+			(77,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(78,1,'Прогляда'),
+			(78,2,'Аніта'),
+			(78,3,'Iраклiївна'),
+			(78,4,'0000078'),
+			(78,5,'+380500000078'),
+			(78,6,'СЕ 000078'),
+			(78,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(79,1,'Журба'),
+			(79,2,'Iринiй'),
+			(79,3,'Борисівна'),
+			(79,4,'0000079'),
+			(79,5,'+380500000079'),
+			(79,6,'СЕ 000079'),
+			(79,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(80,1,'Бодайло'),
+			(80,2,'Віолета'),
+			(80,3,'Iринiївна'),
+			(80,4,'0000080'),
+			(80,5,'+380500000080'),
+			(80,6,'СЕ 000080'),
+			(80,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(81,1,'Трясило'),
+			(81,2,'Iсакiй'),
+			(81,3,'Добромислович'),
+			(81,4,'0000081'),
+			(81,5,'+380500000081'),
+			(81,6,'СЕ 000081'),
+			(81,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(82,1,'Гургула'),
+			(82,2,'Калистрат'),
+			(82,3,'Никанорович'),
+			(82,4,'0000082'),
+			(82,5,'+380500000082'),
+			(82,6,'СЕ 000082'),
+			(82,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(83,1,'Андрусь'),
+			(83,2,'Карп'),
+			(83,3,'Калистратович'),
+			(83,4,'0000083'),
+			(83,5,'+380500000083'),
+			(83,6,'СЕ 000083'),
+			(83,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(84,1,'Степанець'),
+			(84,2,'Кастор'),
+			(84,3,'Карпович'),
+			(84,4,'0000084'),
+			(84,5,'+380500000084'),
+			(84,6,'СЕ 000084'),
+			(84,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(85,1,'Пасічник'),
+			(85,2,'Кипрiан'),
+			(85,3,'Касторович'),
+			(85,4,'0000085'),
+			(85,5,'+380500000085'),
+			(85,6,'СЕ 000085'),
+			(85,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(86,1,'Чумак'),
+			(86,2,'Єлена'),
+			(86,3,'Кипрiанiвна'),
+			(86,4,'0000086'),
+			(86,5,'+380500000086'),
+			(86,6,'СЕ 000086'),
+			(86,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(87,1,'Головач'),
+			(87,2,'Євгенiя'),
+			(87,3,'Кондратівна'),
+			(87,4,'0000087'),
+			(87,5,'+380500000087'),
+			(87,6,'СЕ 000087'),
+			(87,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(88,1,'Волощук'),
+			(88,2,'Домнiка'),
+			(88,3,'Ксенофонтівна'),
+			(88,4,'0000088'),
+			(88,5,'+380500000088'),
+			(88,6,'СЕ 000088'),
+			(88,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(89,1,'Момотюк'),
+			(89,2,'Вевея'),
+			(89,3,'Левівна'),
+			(89,4,'0000089'),
+			(89,5,'+380500000089'),
+			(89,6,'СЕ 000089'),
+			(89,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(90,1,'Неживий'),
+			(90,2,'Артемiя'),
+			(90,3,'Лук\'янівна'),
+			(90,4,'0000090'),
+			(90,5,'+380500000090'),
+			(90,6,'СЕ 000090'),
+			(90,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(91,1,'Кицай'),
+			(91,2,'Парамон'),
+			(91,3,'Добромислович'),
+			(91,4,'0000091'),
+			(91,5,'+380500000091'),
+			(91,6,'СЕ 000091'),
+			(91,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(92,1,'Червоній'),
+			(92,2,'Парфенiй'),
+			(92,3,'Парамонович'),
+			(92,4,'0000092'),
+			(92,5,'+380500000092'),
+			(92,6,'СЕ 000092'),
+			(92,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(93,1,'Бартків'),
+			(93,2,'Пирр'),
+			(93,3,'Парфенiйович'),
+			(93,4,'0000093'),
+			(93,5,'+380500000093'),
+			(93,6,'СЕ 000093'),
+			(93,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(94,1,'Тобілевич'),
+			(94,2,'Питирим'),
+			(94,3,'Пиррович'),
+			(94,4,'0000094'),
+			(94,5,'+380500000094'),
+			(94,6,'СЕ 000094'),
+			(94,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(95,1,'Кропивницький'),
+			(95,2,'Порфирiй'),
+			(95,3,'Питиримович'),
+			(95,4,'0000095'),
+			(95,5,'+380500000095'),
+			(95,6,'СЕ 000095'),
+			(95,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(96,1,'Трублаєвська'),
+			(96,2,'Марiонила'),
+			(96,3,'Порфирiївна'),
+			(96,4,'0000096'),
+			(96,5,'+380500000096'),
+			(96,6,'СЕ 000096'),
+			(96,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(97,1,'Яворівська'),
+			(97,2,'Лiдiя'),
+			(97,3,'Прокесівна'),
+			(97,4,'0000097'),
+			(97,5,'+380500000097'),
+			(97,6,'СЕ 000097'),
+			(97,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(98,1,'Семочко'),
+			(98,2,'Калiса'),
+			(98,3,'Протасiївна'),
+			(98,4,'0000098'),
+			(98,5,'+380500000098'),
+			(98,6,'СЕ 000098'),
+			(98,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(99,1,'Потебенько'),
+			(99,2,'Касинiя'),
+			(99,3,'Ростиславівна'),
+			(99,4,'0000099'),
+			(99,5,'+380500000099'),
+			(99,6,'СЕ 000099'),
+			(99,9,'img/students/defPic.jpg'),
+			/*new one*/
+			(100,1,'Косенко'),
+			(100,2,'Єпихарiя'),
+			(100,3,'Саламанівна'),
+			(100,4,'0000100'),
+			(100,5,'+380500000100'),
+			(100,6,'СЕ 000100'),
+			(100,9,'img/students/defPic.jpg');
 /*
 INSERT INTO `lesson_cycle`(`name`) 
 		VALUES	('Цикл 1 - гуманітарні дисципліни'),
@@ -986,26 +1386,36 @@ INSERT INTO `lessons`(`kid`,`name`)
 				(1,'Основи теорії надійност'),
 				(1,'Інформатика та програмування'),
 				(1,'Коп’ютерна техніка і програмування'),
+				(1,'Теорія інформації'),
+				(1,'Мікропроцесорні та програмні засоби'),
 				(2,'Програмування мовою С'),
 				(2,'Штучний інтелект'),
 				(2,'Глобальні комп’ютерні мережі'),
 				(2,'Об’єктно-орієнтовне програмування'),
 				(2,'Основи захисту інформації'),
+				(2,'Штучні нейромережі'),
+				(2,'Генетичні і еволюційні алгоритми'),
 				(3,'Очисні споруди. Охорона довкілля'),
 				(3,'Прогресивні технології зберігання і розподілу нафтопродуктів'),
 				(3,'Транспорт і зберігання нафти і газу'),
 				(3,'Трубопровідний транспорт газу'),
 				(3,'Основи нафтогазової справи'),
-				(4,'Основи нафтогазової справи'),
+				(3,'Технічна діагностика трубопроводів'),
+				(3,'Сучасні методи обробки інформації в інженерних дослідженнях'),
+				(4,'Технічна діагностика бурового обладнання та інструменту'),
 				(4,'Газова динаміка'),
 				(4,'Гідравліка і гідропривід'),
 				(4,'Гідрогазодинаміка'),
 				(4,'Загальна гідравліка'),
+				(4,'Гідродинаміка неньютонівських рідин'),
+				(4,'Аеро- та гідродинаміка полютантів '),
 				(6,'Психологія управління'),
 				(6,'Ділова іноземна мова '),
 				(6,'Регіональна соціально-економічна політика'),
 				(6,'Мікроекономіка '),
 				(6,'Управління персоналом'),
+				(6,'Управління регіональним розвитком '),
+				(6,'Комунікаційна політика в діяльності держаного службовця'),
 				(5,'архівознавство'),
 				(5,'господарське законодавство'),
 				(5,'корпоративне право'),
@@ -1218,7 +1628,37 @@ INSERT INTO `personal_navant`(`tid`,`startSem`,`endSem`,`stavka`,`planove_navant
 			(7,'2009-09-01','2010-05-05',0.5,740),
 			(8,'2009-09-01','2010-05-05',1,1124),
 			(9,'2009-09-01','2010-05-05',0.75,380),
-			(10,'2009-09-01','2010-05-05',0.5,440);
+			(10,'2009-09-01','2010-05-05',0.5,420),
+			(1,'2010-09-01','2011-05-05',0.5,740),
+			(2,'2010-09-01','2011-05-05',0.75,820),
+			(3,'2010-09-01','2011-05-05',0.2,500),
+			(4,'2010-09-01','2011-05-05',0.5,430),
+			(5,'2010-09-01','2011-05-05',0.75,720),
+			(6,'2010-09-01','2011-05-05',0.5,820),
+			(7,'2010-09-01','2011-05-05',0.5,718),
+			(8,'2010-09-01','2011-05-05',1,1002),
+			(9,'2010-09-01','2011-05-05',0.75,480),
+			(10,'2010-09-01','2011-05-05',0.5,540),
+			(11,'2009-09-01','2010-05-05',0.75,850),
+			(12,'2009-09-01','2010-05-05',0.5,540),
+			(13,'2009-09-01','2010-05-05',0.2,320),
+			(14,'2009-09-01','2010-05-05',0.5,580),
+			(15,'2009-09-01','2010-05-05',0.25,480),
+			(16,'2009-09-01','2010-05-05',0.75,848),
+			(17,'2009-09-01','2010-05-05',1,1200),
+			(18,'2009-09-01','2010-05-05',1,1024),
+			(19,'2009-09-01','2010-05-05',0.5,480),
+			(20,'2009-09-01','2010-05-05',0.5,444),
+			(11,'2010-09-01','2011-05-05',0.5,742),
+			(12,'2010-09-01','2011-05-05',0.75,920),
+			(13,'2010-09-01','2011-05-05',1,920),
+			(14,'2010-09-01','2011-05-05',0.75,430),
+			(15,'2010-09-01','2011-05-05',0.75,820),
+			(16,'2010-09-01','2011-05-05',0.25,434),
+			(17,'2010-09-01','2011-05-05',0.25,318),
+			(18,'2010-09-01','2011-05-05',1,1020),
+			(19,'2010-09-01','2011-05-05',0.5,480),
+			(20,'2010-09-01','2011-05-05',0.5,540);
 	
 INSERT INTO `personal_navant_key`(`key_name`,`key_weight`)
 	VALUES	('Дипломне проектування(кількість студентів)',1),
@@ -1304,7 +1744,27 @@ INSERT INTO `main_navant`(`tid`,`lid`,`gid`,`startSem`,`endSem`)
 			(9,7,7,'2009-09-01','2010-01-21'),
 			(9,7,8,'2009-09-01','2010-01-21'),
 			(10,8,9,'2009-09-01','2010-01-21'),
-			(10,8,10,'2009-09-01','2010-01-21');
+			(10,8,10,'2009-09-01','2010-01-21'),
+			(11,1,1,'2009-09-01','2010-01-21'),
+			(11,2,2,'2009-09-01','2010-01-21'),
+			(12,3,3,'2009-09-01','2010-01-21'),
+			(12,4,4,'2009-09-01','2010-01-21'),
+			(13,5,5,'2009-09-01','2010-01-21'),
+			(13,6,6,'2009-09-01','2010-01-21'),
+			(14,7,7,'2009-09-01','2010-01-21'),
+			(14,8,8,'2009-09-01','2010-01-21'),
+			(15,9,9,'2009-09-01','2010-01-21'),
+			(15,10,10,'2009-09-01','2010-01-21'),
+			(16,1,1,'2009-09-01','2010-01-21'),
+			(16,2,2,'2009-09-01','2010-01-21'),
+			(17,3,3,'2009-09-01','2010-01-21'),
+			(17,4,4,'2009-09-01','2010-01-21'),
+			(18,5,5,'2009-09-01','2010-01-21'),
+			(18,6,6,'2009-09-01','2010-01-21'),
+			(19,7,7,'2009-09-01','2010-01-21'),
+			(19,7,8,'2009-09-01','2010-01-21'),
+			(20,8,9,'2009-09-01','2010-01-21'),
+			(20,8,10,'2009-09-01','2010-01-21');
 			
 INSERT INTO `main_navant_key`(`key_name`,`key_weight`)
 	VALUES	('підгрупа',1),
@@ -1323,101 +1783,233 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(1,2,'10'),
 			(1,3,'5'),
 			(1,4,'32'),
-			(1,5,'4'),
-			(1,6,'1'),
-			(1,7,'16'),
 			(1,8,'15.8'),
-			(1,9,'4'),
+			(1,10,'4'),
 			/*New one*/
 			(2,1,'1'),
 			(2,2,'20'),
 			(2,3,'6'),
-			(2,4,'38'),
 			(2,5,'2'),
-			(2,6,'1'),
-			(2,7,'16'),
-			(2,8,'11.6'),
-			(2,9,'2'),
 			/*New one*/
 			(3,1,'1'),
 			(3,2,'20'),
 			(3,3,'6'),
-			(3,4,'38'),
-			(3,5,'2'),
-			(3,6,'1'),
 			(3,7,'16'),
-			(3,8,'11.6'),
-			(3,9,'2'),
 			/*New one*/
 			(4,1,'1'),
 			(4,2,'20'),
 			(4,3,'6'),
-			(4,4,'38'),
-			(4,5,'2'),
-			(4,6,'1'),
 			(4,7,'16'),
-			(4,8,'11.6'),
-			(4,9,'2'),
 			/*New one*/
 			(5,1,'1'),
 			(5,2,'20'),
 			(5,3,'6'),
-			(5,4,'38'),
 			(5,5,'2'),
-			(5,6,'1'),
-			(5,7,'16'),
-			(5,8,'11.6'),
-			(5,9,'2'),
 			/*New one*/
 			(6,1,'1'),
 			(6,2,'20'),
 			(6,3,'6'),
-			(6,4,'38'),
-			(6,5,'2'),
-			(6,6,'1'),
 			(6,7,'16'),
-			(6,8,'11.6'),
-			(6,9,'2'),
 			/*New one*/
 			(7,1,'1'),
 			(7,2,'20'),
 			(7,3,'6'),
 			(7,4,'38'),
-			(7,5,'2'),
-			(7,6,'1'),
-			(7,7,'16'),
-			(7,8,'11.6'),
-			(7,9,'2'),
+			(7,9,'4'),
 			/*New one*/
 			(8,1,'1'),
 			(8,2,'20'),
 			(8,3,'6'),
 			(8,4,'38'),
-			(8,5,'2'),
 			(8,6,'1'),
-			(8,7,'16'),
 			(8,8,'11.6'),
-			(8,9,'2'),
+			(8,10,'8'),
 			/*New one*/
 			(9,1,'1'),
 			(9,2,'20'),
 			(9,3,'6'),
-			(9,4,'38'),
 			(9,5,'2'),
-			(9,6,'1'),
-			(9,7,'16'),
 			(9,8,'11.6'),
-			(9,9,'2'),
 			/*New one*/
 			(10,1,'1'),
 			(10,2,'20'),
 			(10,3,'6'),
-			(10,4,'38'),
-			(10,5,'2'),
-			(10,6,'1'),
 			(10,7,'16'),
-			(10,8,'11.6'),
-			(10,9,'2');
+			/*New one*/
+			(11,1,'1'),
+			(11,2,'10'),
+			(11,3,'5'),
+			(11,4,'32'),
+			(11,8,'15.8'),
+			(11,10,'4'),
+			/*New one*/
+			(12,1,'1'),
+			(12,2,'20'),
+			(12,3,'6'),
+			(12,5,'2'),
+			/*New one*/
+			(13,1,'1'),
+			(13,2,'20'),
+			(13,3,'6'),
+			(13,7,'16'),
+			/*New one*/
+			(14,1,'1'),
+			(14,2,'20'),
+			(14,3,'6'),
+			(14,7,'16'),
+			/*New one*/
+			(15,1,'1'),
+			(15,2,'20'),
+			(15,3,'6'),
+			(15,5,'2'),
+			/*New one*/
+			(16,1,'1'),
+			(16,2,'20'),
+			(16,3,'6'),
+			(16,7,'16'),
+			/*New one*/
+			(17,1,'1'),
+			(17,2,'20'),
+			(17,3,'6'),
+			(17,4,'38'),
+			(17,9,'4'),
+			/*New one*/
+			(18,1,'1'),
+			(18,2,'20'),
+			(18,3,'6'),
+			(18,4,'38'),
+			(18,6,'1'),
+			(18,8,'11.6'),
+			(18,10,'8'),
+			/*New one*/
+			(19,1,'1'),
+			(19,2,'20'),
+			(19,3,'6'),
+			(19,5,'2'),
+			(19,8,'11.6'),
+			/*New one*/
+			(20,1,'1'),
+			(20,2,'20'),
+			(20,3,'6'),
+			(20,7,'16'),
+			/* from here new*/
+			(22,1,'2'),
+			(22,2,'10'),
+			(22,3,'5'),
+			(22,4,'32'),
+			(22,8,'15.8'),
+			(22,10,'4'),
+			/*New one*/
+			(21,1,'1'),
+			(21,2,'20'),
+			(21,3,'6'),
+			(21,5,'2'),
+			/*New one*/
+			(23,1,'1'),
+			(23,2,'12'),
+			(23,3,'4'),
+			(23,4,'30'),
+			(23,8,'13.8'),
+			(23,10,'2'),
+			/*New one*/
+			(24,1,'1'),
+			(24,2,'10'),
+			(24,3,'5'),
+			(24,4,'32'),
+			(24,9,'15.8'),
+			/*New one*/
+			(25,1,'2'),
+			(25,2,'12'),
+			(25,3,'4'),
+			(25,4,'32'),
+			(25,8,'18.8'),
+			(25,10,'4'),
+			/*New one*/			
+			(26,1,'1'),
+			(26,2,'20'),
+			(26,3,'3'),
+			(26,4,'26'),
+			(26,8,'10.8'),
+			(26,10,'2'),
+			/*New one*/
+			(27,1,'1'),
+			(27,2,'20'),
+			(27,3,'6'),
+			(27,7,'38'),
+			/*New one*/
+			(28,1,'1'),
+			(28,2,'20'),
+			(28,3,'6'),
+			(28,7,'8'),
+			/*New one*/
+			(29,1,'2'),
+			(29,2,'20'),
+			(29,3,'6'),
+			(29,4,'8'),
+			/*New one*/
+			(30,1,'1'),
+			(30,2,'10'),
+			(30,3,'5'),
+			(30,4,'32'),
+			(30,9,'12'),
+			/*New one*/
+			(31,1,'1'),
+			(31,2,'10'),
+			(31,3,'5'),
+			(31,5,'22'),
+			/*New one*/
+			(32,1,'1'),
+			(32,2,'10'),
+			(32,3,'5'),
+			(32,4,'32'),
+			(32,8,'12'),
+			(32,10,'12'),
+			/*New one*/
+			(33,1,'2'),
+			(33,2,'10'),
+			(33,3,'2'),
+			(33,4,'32'),
+			(33,8,'12'),
+			(33,10,'12'),
+			/*New one*/
+			(34,1,'1'),
+			(34,2,'1'),
+			(34,3,'2'),
+			(34,4,'24'),
+			(34,8,'12'),
+			(34,10,'12'),
+			/*New one*/
+			(35,1,'1'),
+			(35,2,'1'),
+			(35,3,'2'),
+			(35,4,'32'),
+			(35,9,'12'),
+			/*New one*/
+			(36,1,'1'),
+			(36,2,'10'),
+			(36,3,'2'),
+			(36,7,'32'),
+			/*New one*/
+			(37,1,'1'),
+			(37,2,'20'),
+			(37,3,'4'),
+			(37,5,'12'),
+			/*New one*/
+			(38,1,'1'),
+			(38,2,'20'),
+			(38,3,'2'),
+			(38,5,'10'),
+			/*New one*/
+			(39,1,'1'),
+			(39,2,'20'),
+			(39,3,'3'),
+			(39,7,'2'),
+			/*New one*/
+			(40,1,'1'),
+			(40,2,'20'),
+			(40,3,'6'),
+			(40,4,'16'),
+			(40,9,'16');
 			
 /* P R O C E D U R E S */
 
@@ -1618,6 +2210,142 @@ END;
 \\
 DELIMITER ;
 
+/* ========== K E Y  T E A C H E R ========== */
+/*Додати ключове поле для викладачів*/
+DELIMITER \\
+CREATE PROCEDURE addTeacherKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+INSERT INTO `teacher_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+END;
+\\
+DELIMITER ;
+/*Видалити ключове поле для викладачів*/
+DELIMITER \\
+CREATE PROCEDURE removeTeacherKey(idn INT(2))
+BEGIN
+DELETE FROM `teacher_key` WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+/*Оновити ключове поле для викладачів*/
+DELIMITER \\
+CREATE PROCEDURE updateTeacherKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+UPDATE `teacher_key` SET `key_name` = keyName, `key_weight` = wght;
+END;
+\\
+DELIMITER ;
+/*Отримати ключові поля для викладачів(для того щоб при створенні форми для додавання чи оновлення знати які будуть поля)*/
+DELIMITER \\
+CREATE PROCEDURE getTeacherKey()
+BEGIN
+SELECT `id`,`key_name`,`key_weight` FROM `teacher_key`;
+END;
+\\
+DELIMITER ;
+
+/* ========== K E Y  S T U D E N T ========== */
+/*Додати ключове поле для студентів*/
+DELIMITER \\
+CREATE PROCEDURE addStudentKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+INSERT INTO `student_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+END;
+\\
+DELIMITER ;
+/*Видалити ключове поле для студентів*/
+DELIMITER \\
+CREATE PROCEDURE removeStudentKey(idn INT(2))
+BEGIN
+DELETE FROM `student_key` WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+/*Оновити ключове поле для студентів*/
+DELIMITER \\
+CREATE PROCEDURE updateStudentKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+UPDATE `student_key` SET `key_name` = keyName, `key_weight` = wght;
+END;
+\\
+DELIMITER ;
+/*Отримати ключові поля для студентів(для того щоб при створенні форми для додавання чи оновлення знати які будуть поля)*/
+DELIMITER \\
+CREATE PROCEDURE getStudentKey()
+BEGIN
+SELECT `id`,`key_name`,`key_weight` FROM `student_key`;
+END;
+\\
+DELIMITER ;
+
+/* ========== K E Y  P E R S O N A L   N A V A N T A J E N N A ========== */
+/*Додати ключове поле для особистого навантаження*/
+DELIMITER \\
+CREATE PROCEDURE addPersNavKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+INSERT INTO `personal_navant_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+END;
+\\
+DELIMITER ;
+/*Видалити ключове поле для особистого навантаження*/
+DELIMITER \\
+CREATE PROCEDURE removePersNavKey(idn INT(2))
+BEGIN
+DELETE FROM `personal_navant_key` WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+/*Оновити ключове поле для особистого навантаження*/
+DELIMITER \\
+CREATE PROCEDURE updatePersNavKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+UPDATE `personal_navant_key` SET `key_name` = keyName, `key_weight` = wght;
+END;
+\\
+DELIMITER ;
+/*Отримати ключові поля для особистого навантаження(для того щоб при створенні форми для додавання чи оновлення знати які будуть поля)*/
+DELIMITER \\
+CREATE PROCEDURE getPersNavKey()
+BEGIN
+SELECT `id`,`key_name`,`key_weight` FROM `personal_navant_key`;
+END;
+\\
+DELIMITER ;
+
+/* ========== K E Y  M A I N    N A V A N T A J E N N A ========== */
+/*Додати ключове поле для головного навантаження*/
+DELIMITER \\
+CREATE PROCEDURE addMainNavKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+INSERT INTO `main_navant_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+END;
+\\
+DELIMITER ;
+/*Видалити ключове поле для головного навантаження*/
+DELIMITER \\
+CREATE PROCEDURE removeMainNavKey(idn INT(2))
+BEGIN
+DELETE FROM `main_navant_key` WHERE `id` = idn;
+END;
+\\
+DELIMITER ;
+/*Оновити ключове поле для головного навантаження*/
+DELIMITER \\
+CREATE PROCEDURE updateMainNavKey(keyName VARCHAR(255), wght INT(2))
+BEGIN
+UPDATE `main_navant_key` SET `key_name` = keyName, `key_weight` = wght;
+END;
+\\
+DELIMITER ;
+/*Отримати ключові поля для головного навантаження(для того щоб при створенні форми для додавання чи оновлення знати які будуть поля)*/
+DELIMITER \\
+CREATE PROCEDURE getMainNavKey()
+BEGIN
+SELECT `id`,`key_name`,`key_weight` FROM `main_navant_key`;
+END;
+\\
+DELIMITER ;
+
 /* ========== A U D I T O R Y ========== */
 
 DELIMITER \\
@@ -1751,6 +2479,16 @@ END;
 \\
 DELIMITER ;
 
+/*Видалити студента*/
+DELIMITER \\
+CREATE PROCEDURE removeStudent(stid INT(2))
+BEGIN
+	DELETE FROM `student` WHERE `id` = stid;
+	DELETE FROM `student_key_value` WHERE `sid` = stid;
+END;
+\\
+DELIMITER ;
+
 /* =========== T E A C H E R ========== */
 /*Отримати дані про всіх викладачів*/
 DELIMITER \\
@@ -1803,35 +2541,97 @@ END;
 \\
 DELIMITER ;
 
-/* =========== T E A C H E R   L O A D ========== */
-/*Персональне навантаження викладача*/
+/*Видалити викладача*/
 DELIMITER \\
-CREATE PROCEDURE getTeachersLoadById(idt INT(2))
+CREATE PROCEDURE removeTeacher(teacid INT(2))
 BEGIN
-SELECT	T.`id`,T.`kid`,
-		TKV.`id`,TKV.`tid`,TKV.`tkid`,TKV.`val`,
-		TK.`id`, TK.`key_name`,TK.`key_weight`,
-		PN.`id`,PN.`tid`,PN.`startSem`,PN.`endSem`,PN.`stavka`,PN.`planove_navant`,
-		PNKV.`id`,PNKV.`pnid`,PNKV.`pnkid`,PNKV.`val`,
-		PNK.`id`, PNK.`key_name`,PNK.`key_weight`/*,
-		MN.`id`, MN.`tid`,MN.`startSem`, MN.`endSem`,
-		MNKV.`id`, MNKV.`mnid`, MNKV.`mnkid`, MNKV.`val`,
-		MNK.`id`, MNK.`key_name`, MNK.`key_weight`*/
-		FROM `teacher` AS T INNER JOIN `teacher_key_value` AS TKV ON T.`id` = TKV.`tid`
-							INNER JOIN `teacher_key` AS TK ON TKV.`tkid` = TK.`id`
-							INNER JOIN `personal_navant` AS PN ON T.`id` = PN.`tid`
-							INNER JOIN `personal_navant_key_value` AS PNKV ON PN.`id` = PNKV.`pnid`
-							INNER JOIN `personal_navant_key` AS PNK ON PNKV.`pnkid` = PNK.`id`
-							WHERE T.`id` = idt;
+	DELETE FROM `teacher` WHERE `id` = teacid;
+	DELETE FROM `teacher_key_value` WHERE `tid` = teacid;
 END;
 \\
 DELIMITER ;
-/*
-SELECT GOS.`name`,MN.`id`,MN.`tid`,MN.`lid`,MN.`gid`,L.`name`, MNKV.`val` AS ispyt
-									FROM `main_navant` AS MN
-									INNER JOIN `teacher` AS T ON T.`id` = MN.`tid`
-									INNER JOIN `groups_of_students` AS GOS ON GOS.`id` = MN.`gid`
-									INNER JOIN `lessons` AS L ON L.`id` = MN.`lid`,
-									INNER JOIN `main_navant_key_value` AS MNKV ON MN.`id` = MNKV.`mnid`,
-									INNER JOIN `main_navant_key` AS MNK ON MNKV.`mnkid` = MNK.`id`,
-									WHERE MNKV.`mnkid` = 8;*/
+
+/* =========== T E A C H E R   L O A D ========== */
+
+/*Персональне навантаження викладача*/
+
+DELIMITER \\
+CREATE PROCEDURE getPersonalTeacherLoad()
+BEGIN
+SELECT	T.`id`,T.`kid`,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		TKV3.`val` AS posada,
+		TKV4.`val` AS mobPhn,
+		TKV5.`val` AS passport,
+		TKV6.`val` AS img,
+		K.`name` AS kafedra,
+		PN.`startSem`,PN.`endSem`,PN.`stavka`,PN.`planove_navant`,
+		PNKV.`val` AS DypPro,
+		PNKV1.`val` AS RecDP,
+		PNKV2.`val` AS magWork,
+		PNKV3.`val` AS RecMag,
+		PNKV4.`val` AS DEK,
+		PNKV5.`val` AS Praktyka
+		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
+						LEFT JOIN `teacher_key_value` TKV4 ON(T.`id` = TKV4.`tid` AND TKV4.`tkid`=5)
+						LEFT JOIN `teacher_key_value` TKV5 ON(T.`id` = TKV5.`tid` AND TKV5.`tkid`=6)
+						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
+						LEFT JOIN `personal_navant` PN ON PN.`tid` = T.`id`
+						LEFT JOIN `personal_navant_key_value` PNKV ON(PN.`id` = PNKV.`pnid` AND PNKV.`pnkid`=1)
+						LEFT JOIN `personal_navant_key_value` PNKV1 ON(PN.`id` = PNKV1.`pnid` AND PNKV1.`pnkid`=2)
+						LEFT JOIN `personal_navant_key_value` PNKV2 ON(PN.`id` = PNKV2.`pnid` AND PNKV2.`pnkid`=3)
+						LEFT JOIN `personal_navant_key_value` PNKV3 ON(PN.`id` = PNKV3.`pnid` AND PNKV3.`pnkid`=4)
+						LEFT JOIN `personal_navant_key_value` PNKV4 ON(PN.`id` = PNKV4.`pnid` AND PNKV4.`pnkid`=5)
+						LEFT JOIN `personal_navant_key_value` PNKV5 ON(PN.`id` = PNKV5.`pnid` AND PNKV5.`pnkid`=6)
+						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`;
+END;
+\\
+DELIMITER ;
+
+DELIMITER \\
+CREATE PROCEDURE getMainTeacherLoad()
+BEGIN
+SELECT	L.`name` AS predmet,
+		GOS.`name` AS grpStud,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		MN.`startSem`,MN.`endSem`,
+		MNKV.`val` AS subGrp,
+		MNKV1.`val` AS studCnt,
+		MNKV2.`val` AS Semestr,
+		MNKV3.`val` AS Lection,
+		MNKV4.`val` AS Lab,
+		MNKV5.`val` AS KontrRob,
+		MNKV6.`val` AS PraktRob,
+		MNKV7.`val` AS Ispyt,
+		MNKV8.`val` AS Zalik,
+		MNKV9.`val` AS Konsult
+		FROM `main_navant` MN LEFT JOIN `teacher` T ON MN.`tid` = T.`id`
+						LEFT JOIN `lessons` L ON MN.`lid` = L.`id`
+						LEFT JOIN `groups_of_students` GOS ON MN.`gid` = GOS.`id`
+						LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
+						LEFT JOIN `teacher_key_value` TKV4 ON(T.`id` = TKV4.`tid` AND TKV4.`tkid`=5)
+						LEFT JOIN `teacher_key_value` TKV5 ON(T.`id` = TKV5.`tid` AND TKV5.`tkid`=6)
+						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
+						LEFT JOIN `main_navant_key_value` MNKV ON(MN.`id` = MNKV.`mnid` AND MNKV.`mnkid`=1)
+						LEFT JOIN `main_navant_key_value` MNKV1 ON(MN.`id` = MNKV1.`mnid` AND MNKV1.`mnkid`=2)
+						LEFT JOIN `main_navant_key_value` MNKV2 ON(MN.`id` = MNKV2.`mnid` AND MNKV2.`mnkid`=3)
+						LEFT JOIN `main_navant_key_value` MNKV3 ON(MN.`id` = MNKV3.`mnid` AND MNKV3.`mnkid`=4)
+						LEFT JOIN `main_navant_key_value` MNKV4 ON(MN.`id` = MNKV4.`mnid` AND MNKV4.`mnkid`=5)
+						LEFT JOIN `main_navant_key_value` MNKV5 ON(MN.`id` = MNKV5.`mnid` AND MNKV5.`mnkid`=6)
+						LEFT JOIN `main_navant_key_value` MNKV6 ON(MN.`id` = MNKV6.`mnid` AND MNKV6.`mnkid`=7)
+						LEFT JOIN `main_navant_key_value` MNKV7 ON(MN.`id` = MNKV7.`mnid` AND MNKV7.`mnkid`=8)
+						LEFT JOIN `main_navant_key_value` MNKV8 ON(MN.`id` = MNKV8.`mnid` AND MNKV8.`mnkid`=9)
+						LEFT JOIN `main_navant_key_value` MNKV9 ON(MN.`id` = MNKV9.`mnid` AND MNKV9.`mnkid`=10);
+END;
+\\
+DELIMITER ;
