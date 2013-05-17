@@ -1850,7 +1850,13 @@ INSERT INTO `main_navant_key`(`key_name`,`key_weight`)
 			('Консультація',9),
 			('Практика',10),
 			('Курсова робота',11),
-			('Курсовий проект',12);
+			('Курсовий проект',12),
+			('Лекційна аудиторія №1',13),
+			('Лекційна аудиторія №2',14),
+			('Лабораторна аудиторія №1',15),
+			('Лабораторна аудиторія №2',16),
+			('Практична аудиторія №1',17),
+			('Практична аудиторія №2',18);
 			
 INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 	VALUES	(1,1,'1'),
@@ -1859,11 +1865,14 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(1,4,'32'),
 			(1,8,'1'),
 			(1,10,'1'),
+			(1,14,'2'),
+			(1,15,'3'),
 			/*new one*/
 			(2,1,'1'),
 			(2,2,'20'),
 			(2,3,'10'),
 			(2,5,'14'),
+			(2,16,'1'),
 			/*New one*/
 			(3,1,'1'),
 			(3,2,'10'),
@@ -1871,11 +1880,15 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(3,4,'6'),
 			(3,6,'16'),
 			(3,9,'1'),
+			(3,14,'5'),
+			(3,15,'6'),
 			/*New one*/
 			(4,1,'1'),
 			(4,2,'10'),
 			(4,3,'5'),
 			(4,7,'12'),
+			(4,18,'3'),
+			(4,19,'2'),
 			/*new one*/
 			(5,1,'2'),
 			(5,2,'22'),
@@ -1884,22 +1897,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(5,8,'1'),
 			(5,10,'1'),
 			(5,12,'1'),
+			(5,14,'3'),
 			/*new one*/
 			(6,1,'2'),
 			(6,2,'22'),
 			(6,3,'4'),
 			(6,5,'2'),
+			(6,16,'6'),
 			/*new one*/
 			(7,1,'1'),
 			(7,2,'18'),
 			(7,3,'8'),
 			(7,4,'12'),
 			(7,9,'1'),
+			(7,14,'3'),
 			/*new one*/
 			(8,1,'1'),
 			(8,2,'14'),
 			(8,3,'10'),
 			(8,7,'14'),
+			(8,18,'3'),
 			/*new one*/
 			(9,1,'1'),
 			(9,2,'18'),
@@ -1908,11 +1925,14 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(9,6,'1'),
 			(9,9,'1'),
 			(9,12,'1'),
+			(9,14,'3'),
 			/*new one*/
 			(10,1,'1'),
 			(10,2,'14'),
 			(10,3,'10'),
 			(10,7,'14'),
+			(10,18,'2'),
+			(10,19,'1'),
 			/*new one*/
 			(11,1,'1'),
 			(11,2,'18'),
@@ -1920,11 +1940,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(11,4,'12'),
 			(11,8,'1'),
 			(11,10,'1'),
+			(11,14,'2'),
 			/*new one*/
 			(12,1,'1'),
 			(12,2,'18'),
 			(12,3,'8'),
 			(12,7,'16'),
+			(12,18,'8'),
 			/*new one*/
 			(13,1,'2'),
 			(13,2,'22'),
@@ -1932,22 +1954,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(13,4,'12'),
 			(13,8,'1'),
 			(13,10,'1'),
+			(13,14,'2'),
 			/*new one*/
 			(14,1,'2'),
 			(14,2,'22'),
 			(14,3,'4'),
 			(14,5,'2'),
+			(14,16,'8'),
 			/*new one*/
 			(15,1,'1'),
 			(15,2,'18'),
 			(15,3,'8'),
 			(15,4,'12'),
 			(15,9,'1'),
+			(15,14,'9'),
 			/*new one*/
 			(16,1,'1'),
 			(16,2,'14'),
 			(16,3,'10'),
 			(16,7,'14'),
+			(16,18,'5'),
 			/*new one*/
 			(17,1,'1'),
 			(17,2,'18'),
@@ -1956,11 +1982,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(17,6,'1'),
 			(17,9,'1'),
 			(17,12,'1'),
+			(17,14,'6'),
 			/*new one*/
 			(18,1,'1'),
 			(18,2,'14'),
 			(18,3,'10'),
 			(18,7,'14'),
+			(18,18,'3'),
 			/*new one*/
 			(19,1,'1'),
 			(19,2,'18'),
@@ -1968,11 +1996,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(19,4,'12'),
 			(19,6,'1'),
 			(19,9,'1'),
+			(19,14,'5'),
 			/*new one*/
 			(20,1,'1'),
 			(20,2,'14'),
 			(20,3,'10'),
 			(20,7,'14'),
+			(20,18,'4'),
 			/*new one*/
 			(21,1,'1'),
 			(21,2,'18'),
@@ -1980,11 +2010,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(21,4,'12'),
 			(21,8,'1'),
 			(21,10,'1'),
+			(21,14,'10'),
 			/*new one*/
 			(22,1,'1'),
 			(22,2,'18'),
 			(22,3,'8'),
 			(22,7,'16'),
+			(22,18,'9'),
 			/*new one*/
 			(23,1,'2'),
 			(23,2,'22'),
@@ -1992,22 +2024,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(23,4,'32'),
 			(23,8,'1'),
 			(23,10,'1'),
+			(23,14,'3'),
 			/*new one*/
 			(24,1,'2'),
 			(24,2,'22'),
 			(24,3,'5'),
 			(24,5,'18'),
+			(24,16,'3'),
 			/*new one*/
 			(25,1,'1'),
 			(25,2,'14'),
 			(25,3,'3'),
 			(25,4,'12'),
 			(25,9,'1'),
+			(25,14,'3'),
 			/*new one*/
 			(26,1,'1'),
 			(26,2,'14'),
 			(26,3,'3'),
 			(26,7,'12'),
+			(26,18,'3'),
 			/*new one*/
 			(27,1,'2'),
 			(27,2,'15'),
@@ -2015,11 +2051,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(27,4,'36'),
 			(27,6,'1'),
 			(27,9,'1'),
+			(27,14,'3'),
 			/*new one*/
 			(28,1,'2'),
 			(28,2,'15'),
 			(28,3,'8'),
 			(28,7,'14'),
+			(28,18,'3'),
 			/*new one*/
 			(29,1,'1'),
 			(29,2,'23'),
@@ -2028,11 +2066,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(29,8,'1'),
 			(29,10,'1'),
 			(29,13,'1'),
+			(29,14,'5'),
 			/*new one*/
 			(30,1,'1'),
 			(30,2,'23'),
 			(30,3,'7'),
 			(30,7,'17'),
+			(30,18,'6'),
 			/*new one*/
 			(31,1,'2'),
 			(31,2,'22'),
@@ -2040,22 +2080,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(31,4,'32'),
 			(31,8,'1'),
 			(31,10,'1'),
+			(31,14,'4'),
 			/*new one*/
 			(32,1,'2'),
 			(32,2,'22'),
 			(32,3,'5'),
 			(32,5,'18'),
+			(32,16,'5'),
 			/*new one*/
 			(33,1,'1'),
 			(33,2,'14'),
 			(33,3,'3'),
 			(33,4,'12'),
 			(33,9,'1'),
+			(33,14,'5'),
 			/*new one*/
 			(34,1,'1'),
 			(34,2,'14'),
 			(34,3,'3'),
 			(34,7,'12'),
+			(34,18,'7'),
 			/*new one*/
 			(35,1,'2'),
 			(35,2,'15'),
@@ -2063,11 +2107,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(35,4,'36'),
 			(35,6,'1'),
 			(35,9,'1'),
+			(35,14,'5'),
 			/*new one*/
 			(36,1,'2'),
 			(36,2,'15'),
 			(36,3,'8'),
 			(36,7,'14'),
+			(36,18,'3'),
 			/*new one*/
 			(37,1,'1'),
 			(37,2,'23'),
@@ -2076,11 +2122,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(37,8,'1'),
 			(37,10,'1'),
 			(37,13,'1'),
+			(37,14,'4'),
 			/*new one*/
 			(38,1,'1'),
 			(38,2,'23'),
 			(38,3,'7'),
 			(38,7,'17'),
+			(38,18,'12'),
 			/*new one*/
 			(39,1,'2'),
 			(39,2,'16'),
@@ -2088,22 +2136,27 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(39,4,'32'),
 			(39,8,'1'),
 			(39,10,'1'),
+			(39,14,'5'),
+			(39,15,'6'),
 			/*new one*/
 			(40,1,'2'),
 			(40,2,'16'),
 			(40,3,'6'),
 			(40,5,'6'),
+			(40,16,'5'),
 			/*new one*/
 			(41,1,'1'),
 			(41,2,'16'),
 			(41,3,'4'),
 			(41,4,'4'),
 			(41,9,'1'),
+			(41,14,'6'),
 			/*new one*/
 			(42,1,'1'),
 			(42,2,'16'),
 			(42,3,'4'),
 			(42,7,'12'),
+			(42,18,'5'),
 			/*new one*/
 			(43,1,'1'),
 			(43,2,'16'),
@@ -2111,11 +2164,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(43,4,'27'),
 			(43,6,'1'),
 			(43,9,'1'),
+			(43,14,'4'),
 			/*new one*/
 			(44,1,'1'),
 			(44,2,'16'),
 			(44,3,'10'),
 			(44,7,'14'),
+			(44,18,'9'),
 			/*new one*/
 			(45,1,'1'),
 			(45,2,'23'),
@@ -2123,11 +2178,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(45,4,'12'),
 			(45,8,'1'),
 			(45,10,'1'),
+			(45,14,'3'),
 			/*new one*/
 			(46,1,'1'),
 			(46,2,'23'),
 			(46,3,'7'),
 			(46,7,'17'),
+			(46,18,'8'),
 			/*new one*/
 			(47,1,'2'),
 			(47,2,'16'),
@@ -2135,22 +2192,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(47,4,'32'),
 			(47,8,'1'),
 			(47,10,'1'),
+			(47,14,'1'),
 			/*new one*/
 			(48,1,'2'),
 			(48,2,'16'),
 			(48,3,'6'),
 			(48,5,'6'),
+			(48,16,'3'),
 			/*new one*/
 			(49,1,'1'),
 			(49,2,'16'),
 			(49,3,'4'),
 			(49,4,'4'),
 			(49,9,'1'),
+			(49,14,'3'),
 			/*new one*/
 			(50,1,'1'),
 			(50,2,'16'),
 			(50,3,'4'),
 			(50,7,'12'),
+			(50,18,'4'),
 			/*new one*/
 			(51,1,'1'),
 			(51,2,'16'),
@@ -2159,11 +2220,14 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(51,6,'1'),
 			(51,9,'1'),
 			(51,13,'1'),
+			(51,14,'6'),
 			/*new one*/
 			(52,1,'1'),
 			(52,2,'16'),
 			(52,3,'10'),
 			(52,7,'14'),
+			(52,18,'8'),
+			(52,19,'5'),
 			/*new one*/
 			(53,1,'1'),
 			(53,2,'23'),
@@ -2171,11 +2235,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(53,4,'12'),
 			(53,8,'1'),
 			(53,10,'1'),
+			(53,14,'3'),
 			/*new one*/
 			(54,1,'1'),
 			(54,2,'23'),
 			(54,3,'7'),
 			(54,7,'17'),
+			(54,18,'5'),
 			/*new one*/
 			(55,1,'2'),
 			(55,2,'12'),
@@ -2183,22 +2249,27 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(55,4,'32'),
 			(55,8,'1'),
 			(55,10,'1'),
+			(55,14,'5'),
 			/*new one*/
 			(56,1,'2'),
 			(56,2,'12'),
 			(56,3,'1'),
 			(56,5,'20'),
+			(56,16,'8'),
+			(56,17,'9'),
 			/*new one*/
 			(57,1,'2'),
 			(57,2,'17'),
 			(57,3,'9'),
 			(57,4,'4'),
 			(57,9,'1'),
+			(57,14,'5'),
 			/*new one*/
 			(58,1,'2'),
 			(58,2,'17'),
 			(58,3,'9'),
 			(58,7,'16'),
+			(58,18,'4'),
 			/*new one*/
 			(59,1,'1'),
 			(59,2,'10'),
@@ -2206,11 +2277,14 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(59,4,'32'),
 			(59,6,'1'),
 			(59,9,'1'),
+			(59,14,'7'),
 			/*new one*/
 			(60,1,'1'),
 			(60,2,'10'),
 			(60,3,'10'),
 			(60,7,'12'),
+			(60,18,'7'),
+			(60,19,'8'),
 			/*new one*/
 			(61,1,'1'),
 			(61,2,'18'),
@@ -2218,11 +2292,14 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(61,4,'12'),
 			(61,8,'1'),
 			(61,10,'1'),
+			(61,14,'6'),
+			(61,15,'5'),
 			/*new one*/
 			(62,1,'1'),
 			(62,2,'18'),
 			(62,3,'3'),
 			(62,7,'14'),
+			(62,18,'5'),
 			/*new one*/
 			(63,1,'2'),
 			(63,2,'11'),
@@ -2230,22 +2307,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(63,4,'32'),
 			(63,8,'1'),
 			(63,10,'1'),
+			(63,14,'5'),
 			/*new one*/
 			(64,1,'2'),
 			(64,2,'11'),
 			(64,3,'3'),
 			(64,5,'20'),
+			(64,16,'8'),
 			/*new one*/
 			(65,1,'1'),
 			(65,2,'19'),
 			(65,3,'7'),
 			(65,4,'4'),
 			(65,9,'1'),
+			(65,14,'8'),
 			/*new one*/
 			(66,1,'1'),
 			(66,2,'19'),
 			(66,3,'7'),
 			(66,7,'16'),
+			(66,18,'3'),
 			/*new one*/
 			(67,1,'1'),
 			(67,2,'15'),
@@ -2253,22 +2334,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(67,4,'22'),
 			(67,6,'1'),
 			(67,9,'1'),
+			(67,14,'9'),
 			/*new one*/
 			(68,1,'1'),
 			(68,2,'15'),
 			(68,3,'8'),
 			(68,7,'14'),
+			(68,18,'8'),
 			/*new one*/
 			(69,1,'1'),
 			(69,2,'19'),
 			(69,3,'7'),
 			(69,4,'4'),
 			(69,9,'1'),
+			(69,14,'3'),
 			/*new one*/
 			(70,1,'1'),
 			(70,2,'19'),
 			(70,3,'7'),
 			(70,7,'16'),
+			(70,18,'10'),
 			/*new one*/
 			(71,1,'1'),
 			(71,2,'14'),
@@ -2276,11 +2361,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(71,4,'10'),
 			(71,6,'1'),
 			(71,9,'1'),
+			(71,14,'5'),
 			/*new one*/
 			(72,1,'1'),
 			(72,2,'14'),
 			(72,3,'8'),
 			(72,7,'18'),
+			(72,18,'3'),
 			/*new one*/
 			(73,1,'1'),
 			(73,2,'14'),
@@ -2289,11 +2376,13 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(73,8,'1'),
 			(73,10,'1'),
 			(73,13,'1'),
+			(73,14,'2'),
 			/*new one*/
 			(74,1,'1'),
 			(74,2,'14'),
 			(74,3,'4'),
 			(74,7,'14'),
+			(74,18,'7'),
 			/*new one*/
 			(75,1,'1'),
 			(75,2,'12'),
@@ -2301,22 +2390,26 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(75,4,'20'),
 			(75,8,'1'),
 			(75,10,'1'),
+			(75,14,'5'),
 			/*new one*/
 			(76,1,'1'),
 			(76,2,'12'),
 			(76,3,'8'),
 			(76,5,'16'),
+			(76,16,'3'),
 			/*new one*/
 			(77,1,'1'),
 			(77,2,'15'),
 			(77,3,'8'),
 			(77,4,'20'),
 			(77,9,'1'),
+			(77,14,'5'),
 			/*new one*/
 			(78,1,'1'),
 			(78,2,'15'),
 			(78,3,'8'),
 			(78,7,'12'),
+			(78,18,'3'),
 			/*new one*/
 			(79,1,'1'),
 			(79,2,'22'),
@@ -2324,26 +2417,28 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(79,4,'10'),
 			(79,6,'1'),
 			(79,9,'1'),
+			(79,14,'8'),
 			/*new one*/
 			(80,1,'1'),
 			(80,2,'22'),
 			(80,3,'3'),
 			(80,7,'12'),
+			(80,18,'11'),
 			/*new one*/
 			(81,1,'1'),
 			(81,2,'5'),
 			(81,3,'5'),
 			(81,11,'1'),
 			/*new one*/
-			(81,1,'1'),
+			(82,1,'1'),
 			(82,2,'20'),
 			(82,3,'5'),
 			(82,11,'1'),
 			/*new one*/
-			(82,1,'1'),
-			(82,2,'15'),
-			(82,3,'5'),
-			(82,11,'1');
+			(83,1,'1'),
+			(83,2,'15'),
+			(83,3,'5'),
+			(83,11,'1');
 			
 /* P R O C E D U R E S */
 
@@ -3026,6 +3121,118 @@ DELIMITER ;
 
 /* =========== T E A C H E R   L O A D ========== */
 
+/*Додати головне навантаження на викладача*/
+DELIMITER \\
+CREATE PROCEDURE addMainTeacherLoad(teach_id INT(2),lection_id INT(2),group_id INT(2),st_sem DATETIME,end_sem DATETIME,sub_grp_id INT(2),sub_grp_val INT(2),stud_cnt_id INT(2),stud_cnt_val INT(2),semestr_id INT(2),semesr_val INT(2),lec_id INT(2),lec_val INT(2),lab_id INT(2),lab_val INT(2),konrt_rob_id INT(2),konrt_rob_val INT(2),prakt_id INT(2),prakt_val INT(2),ispyt_id INT(2),ispyt_val INT(2),zalik_id INT(2),zalik_val INT(2),konsult_id INT(2),konsult_val INT(2),praktyka_id INT(2),praktyka_val INT(2),kurs_rob_id INT(2),kurs_rob_val INT(2),kurs_proj_id INT(2),kurs_proj_val INT(2),lec_aud_1_id INT(2),lec_aud_1_val INT(2),lec_aud_2_id INT(2),lec_aud_2_val INT(2),lab_aud_1_id INT(2),lab_aud_1_val INT(2),lab_aud_2_id INT(2),lab_aud_2_val INT(2),prakt_aud_1_id INT(2),prakt_aud_1_val INT(2),prakt_aud_2_id INT(2),prakt_aud_2_val INT(2))
+BEGIN
+DECLARE ins_id INT DEFAULT '0';
+INSERT INTO `main_navant`(`tid`,`lid`,`gid`,`startSem`,`endSem`) VALUES (teach_id,lection_id,group_id,st_sem,end_sem);
+SET ins_id = LAST_INSERT_ID();
+INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`) 
+VALUES	(ins_id,sub_grp_id,sub_grp_val),
+		(ins_id,stud_cnt_id,stud_cnt_val),
+		(ins_id,semestr_id,semesr_val),
+		(ins_id,lec_id,lec_val),
+		(ins_id,lab_id,lab_val),
+		(ins_id,konrt_rob_id,konrt_rob_val),
+		(ins_id,prakt_id,prakt_val),
+		(ins_id,ispyt_id,ispyt_val),
+		(ins_id,zalik_id,zalik_val),
+		(ins_id,konsult_id,konsult_val),
+		(ins_id,praktyka_id,praktyka_val),
+		(ins_id,kurs_rob_id,kurs_rob_val),
+		(ins_id,kurs_proj_id,kurs_proj_val),
+		(ins_id,lec_aud_1_id,lec_aud_1_val),
+		(ins_id,lec_aud_2_id,lec_aud_2_val),
+		(ins_id,lab_aud_1_id,lab_aud_1_val),
+		(ins_id,lab_aud_2_id,lab_aud_2_val),
+		(ins_id,prakt_aud_1_id,prakt_aud_1_val),
+		(ins_id,prakt_aud_2_id,prakt_aud_2_val);
+END;
+\\
+DELIMITER ;
+
+/*Оновити головне навантаження на викладача*/
+DELIMITER \\
+CREATE PROCEDURE updateMainTeacherLoad(main_nav_id INT(2),teach_id INT(2),lection_id INT(2),group_id INT(2),st_sem DATETIME,end_sem DATETIME,sub_grp_id INT(2),sub_grp_val INT(2),stud_cnt_id INT(2),stud_cnt_val INT(2),semestr_id INT(2),semesr_val INT(2),lec_id INT(2),lec_val INT(2),lab_id INT(2),lab_val INT(2),konrt_rob_id INT(2),konrt_rob_val INT(2),prakt_id INT(2),prakt_val INT(2),ispyt_id INT(2),ispyt_val INT(2),zalik_id INT(2),zalik_val INT(2),konsult_id INT(2),konsult_val INT(2),praktyka_id INT(2),praktyka_val INT(2),kurs_rob_id INT(2),kurs_rob_val INT(2),kurs_proj_id INT(2),kurs_proj_val INT(2),lec_aud_1_id INT(2),lec_aud_1_val INT(2),lec_aud_2_id INT(2),lec_aud_2_val INT(2),lab_aud_1_id INT(2),lab_aud_1_val INT(2),lab_aud_2_id INT(2),lab_aud_2_val INT(2),prakt_aud_1_id INT(2),prakt_aud_1_val INT(2),prakt_aud_2_id INT(2),prakt_aud_2_val INT(2))
+BEGIN
+UPDATE `main_navant` SET `tid` = teach_id,`lid` = lection_id,`gid` = group_id,`startSem` = st_sem,`endSem` = end_sem WHERE `main_navant`.`id` = main_nav_id;
+UPDATE `main_navant_key_value` SET `val` = sub_grp_val WHERE `mnid` = main_nav_id AND `mnkid` = sub_grp_id;
+UPDATE `main_navant_key_value` SET `val` = stud_cnt_val WHERE `mnid` = main_nav_id AND `mnkid` = stud_cnt_id;
+UPDATE `main_navant_key_value` SET `val` = semesr_val WHERE `mnid` = main_nav_id AND `mnkid` = semestr_id;
+UPDATE `main_navant_key_value` SET `val` = lec_val WHERE `mnid` = main_nav_id AND `mnkid` = lec_id;
+UPDATE `main_navant_key_value` SET `val` = lab_val WHERE `mnid` = main_nav_id AND `mnkid` = lab_id;
+UPDATE `main_navant_key_value` SET `val` = konrt_rob_val WHERE `mnid` = main_nav_id AND `mnkid` = konrt_rob_id;
+UPDATE `main_navant_key_value` SET `val` = prakt_val WHERE `mnid` = main_nav_id AND `mnkid` = prakt_id;
+UPDATE `main_navant_key_value` SET `val` = ispyt_val WHERE `mnid` = main_nav_id AND `mnkid` = ispyt_id;
+UPDATE `main_navant_key_value` SET `val` = zalik_val WHERE `mnid` = main_nav_id AND `mnkid` = zalik_id;
+UPDATE `main_navant_key_value` SET `val` = konsult_val WHERE `mnid` = main_nav_id AND `mnkid` = konsult_id;
+UPDATE `main_navant_key_value` SET `val` = praktyka_val WHERE `mnid` = main_nav_id AND `mnkid` = praktyka_id;
+UPDATE `main_navant_key_value` SET `val` = kurs_rob_val WHERE `mnid` = main_nav_id AND `mnkid` = kurs_rob_id;
+UPDATE `main_navant_key_value` SET `val` = kurs_proj_val WHERE `mnid` = main_nav_id AND `mnkid` = kurs_proj_id;
+UPDATE `main_navant_key_value` SET `val` = lec_aud_1_val WHERE `mnid` = main_nav_id AND `mnkid` = lec_aud_1_id;
+UPDATE `main_navant_key_value` SET `val` = lec_aud_2_val WHERE `mnid` = main_nav_id AND `mnkid` = lec_aud_2_id;
+UPDATE `main_navant_key_value` SET `val` = lab_aud_1_val WHERE `mnid` = main_nav_id AND `mnkid` = lab_aud_1_id;
+UPDATE `main_navant_key_value` SET `val` = lab_aud_2_val WHERE `mnid` = main_nav_id AND `mnkid` = lab_aud_2_id;
+UPDATE `main_navant_key_value` SET `val` = prakt_aud_1_val WHERE `mnid` = main_nav_id AND `mnkid` = prakt_aud_1_id;
+UPDATE `main_navant_key_value` SET `val` = prakt_aud_2_val WHERE `mnid` = main_nav_id AND `mnkid` = prakt_aud_2_id;
+END;
+\\
+DELIMITER ;
+
+/*видалити головне навантаження на викладача*/
+DELIMITER \\
+CREATE PROCEDURE removeMainTeacherLoad(main_load_id INT(2))
+BEGIN
+DELETE FROM `main_navant` WHERE `main_navant`.`id` = main_load_id;
+END;
+\\
+DELIMITER ;
+
+/*додати персональне навантаження на викладача*/
+DELIMITER \\
+CREATE PROCEDURE addPersonalTeacherLoad(teach_id INT(2), st_sem DATETIME,end_sem DATETIME,stavka FLOAT, plan_nav FLOAT,dyp_proj_id INT(2),dyp_proj_val INT(2),recenz_DP_id INT(2),recenz_DP_val INT(2),mag_rob_id INT(2),mag_rob_val INT(2),rec_mag_id INT(2),rec_mag_val INT(2), DEK_id INT(2),DEK_val INT(2))
+BEGIN
+DECLARE ins_id INT DEFAULT '0';
+INSERT INTO `personal_navant`(`tid`,`startSem`,`endSem`,`stavka`,`planove_navant`) VALUES (teach_id,st_sem,end_sem,stavka,plan_nav);
+SET ins_id = LAST_INSERT_ID();
+INSERT INTO `personal_navant_key_value`(`pnid`,`pnkid`,`val`) 
+VALUES	(ins_id,dyp_proj_id,dyp_proj_val),
+		(ins_id,recenz_DP_id,recenz_DP_val),
+		(ins_id,mag_rob_id,mag_rob_val),
+		(ins_id,rec_mag_id,rec_mag_val),
+		(ins_id,DEK_id,DEK_val);
+END;
+\\
+DELIMITER ;
+
+/*редагувати персональне навантаження на викладача*/
+DELIMITER \\
+CREATE PROCEDURE updatePersonalTeacherLoad(pers_id INT(2),teach_id INT(2), st_sem DATETIME,end_sem DATETIME,stavka FLOAT, plan_nav FLOAT,dyp_proj_id INT(2),dyp_proj_val INT(2),recenz_DP_id INT(2),recenz_DP_val INT(2),mag_rob_id INT(2),mag_rob_val INT(2),rec_mag_id INT(2),rec_mag_val INT(2), DEK_id INT(2),DEK_val INT(2))
+BEGIN
+UPDATE `personal_navant` SET `tid` = teach_id,`startSem` = st_sem,`endSem` = end_sem,`stavka` = stavka,`planove_navant` = plan_nav WHERE `personal_navant`.`id` = pers_id;
+UPDATE `personal_navant_key_value` SET `val` = dyp_proj_val WHERE `pnid` = pers_id AND `pnkid` =dyp_proj_id;
+UPDATE `personal_navant_key_value` SET `val` = recenz_DP_val WHERE `pnid` = pers_id AND `pnkid` =recenz_DP_id;
+UPDATE `personal_navant_key_value` SET `val` = mag_rob_val WHERE `pnid` = pers_id AND `pnkid` =mag_rob_id;
+UPDATE `personal_navant_key_value` SET `val` = rec_mag_val WHERE `pnid` = pers_id AND `pnkid` =rec_mag_id;
+UPDATE `personal_navant_key_value` SET `val` = DEK_val WHERE `pnid` = pers_id AND `pnkid` =DEK_id;
+END;
+\\
+DELIMITER ;
+
+/*видалити персональне навантаження на викладача*/
+DELIMITER \\
+CREATE PROCEDURE removePersTeacherLoad(pers_load_id INT(2))
+BEGIN
+DELETE FROM `personal_navant` WHERE `personal_navant`.`id` = pers_load_id;
+END;
+\\
+DELIMITER ;
+
+
+/* =========== T E A C H E R    L O A D   F O R  D I S P L A Y ========== */
+
+
 /*Персональне навантаження викладача(форма 1 - 50% від потреби)*/
 
 DELIMITER \\
@@ -3061,8 +3268,8 @@ SELECT	T.`id`,T.`kid`,
 						LEFT JOIN `personal_navant_key_value` PNKV3 ON(PN.`id` = PNKV3.`pnid` AND PNKV3.`pnkid`=4)
 						LEFT JOIN `personal_navant_key_value` PNKV4 ON(PN.`id` = PNKV4.`pnid` AND PNKV4.`pnkid`=5)
 						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`
-						WHERE T.`id` = teachId
-						WHERE PN.`startSem` AND PN.`endSem` BETWEEN ;
+						WHERE T.`id` = teachId AND
+						PN.`startSem` AND PN.`endSem` BETWEEN datSt AND datFin;
 END;
 \\
 DELIMITER ;
@@ -3070,7 +3277,7 @@ DELIMITER ;
 
 /*Головне навантаження викладача(форма 1 - +50%від потреби)*/
 DELIMITER \\
-CREATE PROCEDURE getMainTeacherLoad()
+CREATE PROCEDURE getMainTeacherLoad(t_id INT(2),datSt DATETIME,datFin DATETIME)
 BEGIN
 SELECT	L.`name` AS predmet,
 		GOS.`name` AS grpStud,
@@ -3118,7 +3325,7 @@ SELECT	L.`name` AS predmet,
 						LEFT JOIN `main_navant_key_value` MNKV10 ON(MN.`id` = MNKV10.`mnid` AND MNKV10.`mnkid`=11)
 						LEFT JOIN `main_navant_key_value` MNKV11 ON(MN.`id` = MNKV11.`mnid` AND MNKV11.`mnkid`=12)
 						LEFT JOIN `main_navant_key_value` MNKV12 ON(MN.`id` = MNKV12.`mnid` AND MNKV12.`mnkid`=13)
-						WHERE T.`id` = 1;
+						WHERE T.`id` = t_id AND MN.`startSem` AND MN.`endSem` BETWEEN datSt AND datFin;
 END;
 \\
 DELIMITER ;
@@ -3128,6 +3335,7 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getTeachersLoadByKafedra(kafId INT(2))
 BEGIN
+DECLARE sum_nav,sum_stavka INT default '0';
 SELECT	GROUP_CONCAT(DISTINCT CONCAT(TKV.`val`,' '),CONCAT(SUBSTRING(TKV1.`val`,1,1),'. '),CONCAT(SUBSTRING(TKV2.`val`,1,1),'.')) AS surname,
 		TKV3.`val` AS posada,
 		PN.`stavka`,
@@ -3248,16 +3456,23 @@ BEGIN
 SELECT	DISTINCT L.`name` AS predmet,
 		GROUP_CONCAT(DISTINCT GOS.`name` ORDER BY GOS.`name` ASC SEPARATOR ', ') AS grpStud,
 		MNKV.`val` AS subGrp,
-		IF(IFNULL(MNKV3.`val`,NULL),0,GROUP_CONCAT(DISTINCT TKV.`val`)) AS Lector,
+		/*IF(IFNULL(MNKV3.`val`,NULL),0,GROUP_CONCAT(DISTINCT TKV.`val`)) AS Lector,
 		IF(IFNULL(MNKV4.`val`,NULL),0,GROUP_CONCAT(DISTINCT TKV1.`val`)) AS Practyk,
 		IF(IFNULL(MNKV6.`val`,NULL),0,GROUP_CONCAT(DISTINCT TKV2.`val`)) AS Laborant,
-		/*
+		*/
+		A.`number_aud`,
 		GROUP_CONCAT(DISTINCT MNKV3.`val`)AS Lec,
+		GROUP_CONCAT(DISTINCT MNKV7.`val`)AS LecAud1,
+		GROUP_CONCAT(DISTINCT MNKV8.`val`)AS LecAud2,
 		GROUP_CONCAT(DISTINCT MNKV4.`val`)AS Pract,
-		GROUP_CONCAT(DISTINCT MNKV6.`val`)AS Lab1,
+		GROUP_CONCAT(DISTINCT MNKV9.`val`)AS PractAud1,
+		GROUP_CONCAT(DISTINCT MNKV10.`val`)AS PractAud2,
+		GROUP_CONCAT(DISTINCT MNKV6.`val`)AS Lab,
+		GROUP_CONCAT(DISTINCT MNKV11.`val`)AS LabAud1,
+		GROUP_CONCAT(DISTINCT MNKV12.`val`)AS LabAud2,
 		GROUP_CONCAT(DISTINCT TKV.`val` ORDER BY TKV.`val` ASC)AS Lec1,
 		GROUP_CONCAT(DISTINCT TKV1.`val` ORDER BY TKV1.`val` ASC)AS Pract1,
-		GROUP_CONCAT(DISTINCT TKV2.`val` ORDER BY TKV2.`val` ASC)AS Lab1,*/
+		GROUP_CONCAT(DISTINCT TKV2.`val` ORDER BY TKV2.`val` ASC)AS Lab1,
 		MN.`startSem`,MN.`endSem`
 		FROM `lessons` L  LEFT JOIN `main_navant` MN ON MN.`lid` = L.`id`
 						LEFT JOIN `teacher` T ON MN.`tid` = T.`id`
@@ -3269,7 +3484,13 @@ SELECT	DISTINCT L.`name` AS predmet,
 						LEFT JOIN `main_navant_key_value` MNKV3 ON(MN.`id` = MNKV3.`mnid` AND MNKV3.`mnkid`=4)
 						LEFT JOIN `main_navant_key_value` MNKV4 ON(MN.`id` = MNKV4.`mnid` AND MNKV4.`mnkid`=5)
 						LEFT JOIN `main_navant_key_value` MNKV6 ON(MN.`id` = MNKV6.`mnid` AND MNKV6.`mnkid`=7)
-						WHERE MN.`startSem` /*AND MN.`endSem`*/ BETWEEN begSem AND finSem
+						LEFT JOIN (SELECT A.`number_aud` FROM `auditory` A) `main_navant_key_value` MNKV7  ON (MN.`id` = MNKV7.`mnid` AND MNKV7.`mnkid`=14 MNKV7.`val` = A.`id`)
+						LEFT JOIN `main_navant_key_value` MNKV8 ON(MN.`id` = MNKV8.`mnid` AND MNKV8.`mnkid`=15)
+						LEFT JOIN `main_navant_key_value` MNKV9 ON(MN.`id` = MNKV9.`mnid` AND MNKV9.`mnkid`=16)
+						LEFT JOIN `main_navant_key_value` MNKV10 ON(MN.`id` = MNKV10.`mnid` AND MNKV10.`mnkid`=17)
+						LEFT JOIN `main_navant_key_value` MNKV11 ON(MN.`id` = MNKV11.`mnid` AND MNKV11.`mnkid`=18)
+						LEFT JOIN `main_navant_key_value` MNKV12 ON(MN.`id` = MNKV12.`mnid` AND MNKV12.`mnkid`=19)
+						/*WHERE MN.`startSem` AND MN.`endSem` BETWEEN begSem AND finSem*/
 						GROUP BY L.`name`;
 END;
 \\
