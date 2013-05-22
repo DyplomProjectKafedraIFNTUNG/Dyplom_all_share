@@ -1913,7 +1913,9 @@ INSERT INTO `main_navant`(`tid`,`lid`,`gid`,`startSem`,`endSem`)
 			(17,35,10,'2009-09-01','2010-05-21'),
 			(18,35,10,'2009-09-01','2010-05-21'),
 			(19,36,11,'2009-09-01','2010-05-21'),
-			(20,36,11,'2009-09-01','2010-05-21');
+			(20,36,11,'2009-09-01','2010-05-21'),
+			(1,4,2,'2010-09-01','2011-05-21'),
+			(1,3,11,'2010-09-01','2011-05-21');
 			
 INSERT INTO `main_navant_key`(`key_name`,`key_weight`)
 	VALUES	('підгрупа',1),
@@ -2500,7 +2502,21 @@ INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`)
 			(80,2,'22'),
 			(80,3,'3'),
 			(80,7,'12'),
-			(80,17,'11');
+			(80,17,'11'),
+			/*new one*/
+			(81,1,'1'),
+			(81,2,'22'),
+			(81,3,'3'),
+			(81,4,'10'),
+			(81,6,'1'),
+			(81,9,'1'),
+			(81,13,'8'),
+			/*new one*/
+			(82,1,'1'),
+			(82,2,'22'),
+			(82,3,'3'),
+			(82,7,'12'),
+			(82,17,'11');
 
 INSERT INTO `type_prakt`(`type_prakt_val`) VALUES ('Виробнича');
 
@@ -3530,6 +3546,84 @@ END;
 \\
 DELIMITER ;
 
+/*Loading teachers by kafedra (forms 2,3 and so on)*/
 
+DELIMITER \\
+CREATE PROCEDURE getTeachersFinalLoadByKafedra(k_id INT(2),begSem DATETIME,finSem DATETIME)
+BEGIN
+SELECT PEVA.`NSP`,PEVA.`posada`,PEVA.`stavka`,PEVA.`planove_navant`,PEVA.`PersNavCalc`,MVA.`MainLoadCalc`,PVA.`cntPract`,
+(MVA.`MainLoadCalc`+PEVA.`PersNavCalc`+PVA.`cntPract`) AS finSum,
+(PEVA.`planove_navant`-(MVA.`MainLoadCalc`+PEVA.`PersNavCalc`+PVA.`cntPract`)) AS difCalc
+FROM `main_view_all` MVA	LEFT JOIN `pers_view_all` PEVA ON MVA.`id` = PEVA.`id`
+							LEFT JOIN `pract_view_all` PVA ON MVA.`id` = PVA.`id`
+WHERE  MVA.`kid` = k_id	AND (PVA.`startSem` AND PVA.`endSem` BETWEEN begSem AND finSem)
+						AND (PEVA.`startSem` AND PEVA.`endSem` BETWEEN begSem AND finSem)
+						AND (MVA.`startSem` AND MVA.`endSem` BETWEEN begSem AND finSem);
+END;
+\\
+DELIMITER ;
 
+/*main navant for all*/
 
+CREATE OR REPLACE VIEW main_view_all AS SELECT	T.`id`,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		T.`kid`,
+		MN.`startSem`,MN.`endSem`,
+		SUM(IFNULL(MNKV6.`val`,0)+IFNULL(MNKV3.`val`,0)+IFNULL(MNKV4.`val`,0)+IFNULL(MNKV7.`val`*0.33*MNKV1.`val`,0)+IFNULL(MNKV8.`val`*2,0)+IFNULL(MNKV9.`val`*2,0)+IFNULL(MNKV5.`val`*0.33*MNKV1.`val`,0)+IFNULL(MNKV11.`val`*3*MNKV1.`val`,0)+IFNULL(MNKV12.`val`*4*MNKV1.`val`,0)) AS MainLoadCalc
+		FROM `main_navant` MN LEFT JOIN `teacher` T ON MN.`tid` = T.`id`
+						LEFT JOIN `lessons` L ON MN.`lid` = L.`id`
+						LEFT JOIN `groups_of_students` GOS ON MN.`gid` = GOS.`id`
+						LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `main_navant_key_value` MNKV ON(MN.`id` = MNKV.`mnid` AND MNKV.`mnkid`=1)
+						LEFT JOIN `main_navant_key_value` MNKV1 ON(MN.`id` = MNKV1.`mnid` AND MNKV1.`mnkid`=2)
+						LEFT JOIN `main_navant_key_value` MNKV2 ON(MN.`id` = MNKV2.`mnid` AND MNKV2.`mnkid`=3)
+						LEFT JOIN `main_navant_key_value` MNKV3 ON(MN.`id` = MNKV3.`mnid` AND MNKV3.`mnkid`=4)
+						LEFT JOIN `main_navant_key_value` MNKV4 ON(MN.`id` = MNKV4.`mnid` AND MNKV4.`mnkid`=5)
+						LEFT JOIN `main_navant_key_value` MNKV5 ON(MN.`id` = MNKV5.`mnid` AND MNKV5.`mnkid`=6)
+						LEFT JOIN `main_navant_key_value` MNKV6 ON(MN.`id` = MNKV6.`mnid` AND MNKV6.`mnkid`=7)
+						LEFT JOIN `main_navant_key_value` MNKV7 ON(MN.`id` = MNKV7.`mnid` AND MNKV7.`mnkid`=8)
+						LEFT JOIN `main_navant_key_value` MNKV8 ON(MN.`id` = MNKV8.`mnid` AND MNKV8.`mnkid`=9)
+						LEFT JOIN `main_navant_key_value` MNKV9 ON(MN.`id` = MNKV9.`mnid` AND MNKV9.`mnkid`=10)
+						LEFT JOIN `main_navant_key_value` MNKV11 ON(MN.`id` = MNKV11.`mnid` AND MNKV11.`mnkid`=11)
+						LEFT JOIN `main_navant_key_value` MNKV12 ON(MN.`id` = MNKV12.`mnid` AND MNKV12.`mnkid`=12)
+						GROUP BY T.`id`,MN.`startSem`,MN.`endSem`
+						;
+
+/*practice navantajenna for all*/
+
+CREATE OR REPLACE VIEW pract_view_all AS SELECT T.`id`,CONCAT(TKV.`val`,' ',SUBSTRING(TKV1.`val`,1,1),'. ',SUBSTRING(TKV2.`val`,1,1),'.') AS teacher_p,
+GOS.`name`,TP.`type_prakt_val`,P.`stud_cnt`,
+P.`startSem`,P.`endSem`,T.`kid`,
+(P.`stud_cnt`*3) AS cntPract 
+FROM `practice` P	LEFT JOIN `teacher` T ON P.`tid` = T.`id`
+					LEFT JOIN `type_prakt` TP ON P.`type_id` = TP.`id`
+					LEFT JOIN `groups_of_students` GOS ON P.`gid` = GOS.`id`
+					LEFT JOIN `teacher_key_value` TKV ON(TKV.`tid` = T.`id` AND TKV.`tkid` = 1)
+					LEFT JOIN `teacher_key_value` TKV1 ON(TKV1.`tid` = T.`id` AND TKV1.`tkid` = 2)
+					LEFT JOIN `teacher_key_value` TKV2 ON(TKV2.`tid` = T.`id` AND TKV2.`tkid` = 3)
+					;
+
+/*personal navantajenna for all*/
+
+CREATE OR REPLACE VIEW pers_view_all AS SELECT	T.`id`,T.`kid`,
+		CONCAT(TKV.`val`,' ',SUBSTRING(TKV1.`val`,1,1),'. ',SUBSTRING(TKV2.`val`,1,1),'.') AS NSP,
+		TKV3.`val` AS posada,
+		PN.`startSem`,PN.`endSem`,PN.`stavka`,PN.`planove_navant`,
+		(IFNULL(PNKV.`val`*20,0)+IFNULL(PNKV1.`val`*3,0)+IFNULL(PNKV2.`val`*30,0)+IFNULL(PNKV3.`val`*4,0)) AS PersNavCalc
+		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
+						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
+						LEFT JOIN `personal_navant` PN ON PN.`tid` = T.`id`
+						LEFT JOIN `personal_navant_key_value` PNKV ON(PN.`id` = PNKV.`pnid` AND PNKV.`pnkid`=1)
+						LEFT JOIN `personal_navant_key_value` PNKV1 ON(PN.`id` = PNKV1.`pnid` AND PNKV1.`pnkid`=2)
+						LEFT JOIN `personal_navant_key_value` PNKV2 ON(PN.`id` = PNKV2.`pnid` AND PNKV2.`pnkid`=3)
+						LEFT JOIN `personal_navant_key_value` PNKV3 ON(PN.`id` = PNKV3.`pnid` AND PNKV3.`pnkid`=4)
+						LEFT JOIN `personal_navant_key_value` PNKV4 ON(PN.`id` = PNKV4.`pnid` AND PNKV4.`pnkid`=5)
+						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`
+						;
