@@ -126,7 +126,7 @@ COMMENT = 'Таблиця в якій зберігаються дані про �
 /*Three tables for teachers*/
 
 CREATE TABLE IF NOT EXISTS `teacher`(
-`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор студента',
+`id` INTEGER(2) NOT NULL AUTO_INCREMENT COMMENT 'ідентифікатор викладача',
 `kid` INTEGER(2) NOT NULL COMMENT 'Звязок викладача з кафедрою',
 PRIMARY KEY(`id`),
 CONSTRAINT FOREIGN KEY(kid) REFERENCES `kafedra`(id) 
@@ -437,6 +437,71 @@ FOREIGN KEY(type_id) REFERENCES `type_prakt`(id)
 DEFAULT CHARACTER SET `utf8`
 COLLATE utf8_general_ci
 COMMENT = 'Таблиця в якій зберігаються дані про практику викладачів';
+
+/* V I E W S*/
+
+/*main navant for all*/
+
+CREATE OR REPLACE VIEW main_view_all AS SELECT	T.`id`,
+		TKV.`val` AS surname,
+		TKV1.`val` AS name,
+		TKV2.`val` AS patronimic,
+		T.`kid`,
+		MN.`startSem`,MN.`endSem`,
+		SUM(IFNULL(MNKV6.`val`,0)+IFNULL(MNKV3.`val`,0)+IFNULL(MNKV4.`val`,0)+IFNULL(MNKV7.`val`*0.33*MNKV1.`val`,0)+IFNULL(MNKV8.`val`*2,0)+IFNULL(MNKV9.`val`*2,0)+IFNULL(MNKV5.`val`*0.33*MNKV1.`val`,0)+IFNULL(MNKV11.`val`*3*MNKV1.`val`,0)+IFNULL(MNKV12.`val`*4*MNKV1.`val`,0)) AS MainLoadCalc
+		FROM `main_navant` MN LEFT JOIN `teacher` T ON MN.`tid` = T.`id`
+						LEFT JOIN `lessons` L ON MN.`lid` = L.`id`
+						LEFT JOIN `groups_of_students` GOS ON MN.`gid` = GOS.`id`
+						LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `main_navant_key_value` MNKV ON(MN.`id` = MNKV.`mnid` AND MNKV.`mnkid`=1)
+						LEFT JOIN `main_navant_key_value` MNKV1 ON(MN.`id` = MNKV1.`mnid` AND MNKV1.`mnkid`=2)
+						LEFT JOIN `main_navant_key_value` MNKV2 ON(MN.`id` = MNKV2.`mnid` AND MNKV2.`mnkid`=3)
+						LEFT JOIN `main_navant_key_value` MNKV3 ON(MN.`id` = MNKV3.`mnid` AND MNKV3.`mnkid`=4)
+						LEFT JOIN `main_navant_key_value` MNKV4 ON(MN.`id` = MNKV4.`mnid` AND MNKV4.`mnkid`=5)
+						LEFT JOIN `main_navant_key_value` MNKV5 ON(MN.`id` = MNKV5.`mnid` AND MNKV5.`mnkid`=6)
+						LEFT JOIN `main_navant_key_value` MNKV6 ON(MN.`id` = MNKV6.`mnid` AND MNKV6.`mnkid`=7)
+						LEFT JOIN `main_navant_key_value` MNKV7 ON(MN.`id` = MNKV7.`mnid` AND MNKV7.`mnkid`=8)
+						LEFT JOIN `main_navant_key_value` MNKV8 ON(MN.`id` = MNKV8.`mnid` AND MNKV8.`mnkid`=9)
+						LEFT JOIN `main_navant_key_value` MNKV9 ON(MN.`id` = MNKV9.`mnid` AND MNKV9.`mnkid`=10)
+						LEFT JOIN `main_navant_key_value` MNKV11 ON(MN.`id` = MNKV11.`mnid` AND MNKV11.`mnkid`=11)
+						LEFT JOIN `main_navant_key_value` MNKV12 ON(MN.`id` = MNKV12.`mnid` AND MNKV12.`mnkid`=12)
+						GROUP BY T.`id`,MN.`startSem`,MN.`endSem`;
+
+/*practice navantajenna for all*/
+
+CREATE OR REPLACE VIEW pract_view_all AS SELECT T.`id`,CONCAT(TKV.`val`,' ',SUBSTRING(TKV1.`val`,1,1),'. ',SUBSTRING(TKV2.`val`,1,1),'.') AS teacher_p,
+GOS.`name`,TP.`type_prakt_val`,P.`stud_cnt`,
+P.`startSem`,P.`endSem`,T.`kid`,
+(P.`stud_cnt`*3) AS cntPract 
+FROM `practice` P	LEFT JOIN `teacher` T ON P.`tid` = T.`id`
+					LEFT JOIN `type_prakt` TP ON P.`type_id` = TP.`id`
+					LEFT JOIN `groups_of_students` GOS ON P.`gid` = GOS.`id`
+					LEFT JOIN `teacher_key_value` TKV ON(TKV.`tid` = T.`id` AND TKV.`tkid` = 1)
+					LEFT JOIN `teacher_key_value` TKV1 ON(TKV1.`tid` = T.`id` AND TKV1.`tkid` = 2)
+					LEFT JOIN `teacher_key_value` TKV2 ON(TKV2.`tid` = T.`id` AND TKV2.`tkid` = 3);
+
+/*personal navantajenna for all*/
+
+CREATE OR REPLACE VIEW pers_view_all AS SELECT	T.`id`,T.`kid`,
+		CONCAT(TKV.`val`,' ',SUBSTRING(TKV1.`val`,1,1),'. ',SUBSTRING(TKV2.`val`,1,1),'.') AS NSP,
+		TKV3.`val` AS posada,
+		PN.`startSem`,PN.`endSem`,PN.`stavka`,PN.`planove_navant`,
+		(IFNULL(PNKV.`val`*20,0)+IFNULL(PNKV1.`val`*3,0)+IFNULL(PNKV2.`val`*30,0)+IFNULL(PNKV3.`val`*4,0)) AS PersNavCalc
+		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
+						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
+						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
+						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
+						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
+						LEFT JOIN `personal_navant` PN ON PN.`tid` = T.`id`
+						LEFT JOIN `personal_navant_key_value` PNKV ON(PN.`id` = PNKV.`pnid` AND PNKV.`pnkid`=1)
+						LEFT JOIN `personal_navant_key_value` PNKV1 ON(PN.`id` = PNKV1.`pnid` AND PNKV1.`pnkid`=2)
+						LEFT JOIN `personal_navant_key_value` PNKV2 ON(PN.`id` = PNKV2.`pnid` AND PNKV2.`pnkid`=3)
+						LEFT JOIN `personal_navant_key_value` PNKV3 ON(PN.`id` = PNKV3.`pnid` AND PNKV3.`pnkid`=4)
+						LEFT JOIN `personal_navant_key_value` PNKV4 ON(PN.`id` = PNKV4.`pnid` AND PNKV4.`pnkid`=5)
+						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`;
+
 
 INSERT INTO `building`(`number_bld`,`description`)
 	VALUES	(1,'1-ий корпус'),
@@ -2554,7 +2619,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addFaculty(name VARCHAR(255), pic VARCHAR(255), descript TEXT)
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `faculty`(`name`,`pic`,`description`) VALUES (name,pic, descript);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2610,7 +2678,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addKafedra(fid INT(2), name VARCHAR(255), pic VARCHAR(255), descript TEXT)
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `kafedra`(`fid`,`name`,`pic`,`description`) VALUES (fid,name,pic,descript);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2657,7 +2728,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addGroupOfStudents(kid INT(2), sfid INT(2), name VARCHAR(255), cnt INT(2), descript TEXT)
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `groups_of_students`(`kid`,`sfid`,`name`,`count_stud`,`description`) VALUES (kid,sfid,name,cnt,descript);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2704,7 +2778,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addLesson(kid INT(2), name VARCHAR(80))
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `lessons`(`kid`,`name`) VALUES (kid,name);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2732,7 +2809,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addTeacherKey(keyName VARCHAR(255), wght INT(2))
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `teacher_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2766,7 +2846,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addStudentKey(keyName VARCHAR(255), wght INT(2))
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `student_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2800,7 +2883,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addPersNavKey(keyName VARCHAR(255), wght INT(2))
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `personal_navant_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2834,7 +2920,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addMainNavKey(keyName VARCHAR(255), wght INT(2))
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `main_navant_key`(`key_name`,`key_weight`) VALUES (keyName, wght);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2868,7 +2957,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addAuditory(audNum VARCHAR(6), build INT(2), place INT(2), descr TEXT)
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `auditory`(`number_aud`,`id_build`,`number_place`,`descript`) VALUES (audNum, build, place, descr);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -2894,7 +2986,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addBuilding(numbBld VARCHAR(6), descr TEXT)
 BEGIN
+DECLARE add_id INT default '-1';
 INSERT INTO `building`(`number_bld`,`descript`) VALUES (numBld, descr);
+SET add_id = LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -3031,19 +3126,20 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addStudent(grp INT(2),id_surname INT(2), val_surname VARCHAR(255),id_name INT(2), val_name VARCHAR(255),id_patronim INT(2), val_patronim VARCHAR(255),id_zalik1 INT(2), val_zalik1 VARCHAR(255),id_phone INT(2), val_phone VARCHAR(255),id_passp INT(2), val_passp VARCHAR(255),id_surname2 INT(2), val_surname2 VARCHAR(255),id_zalik2 INT(2), val_zalik2 VARCHAR(255),id_photo INT(2), val_photo VARCHAR(255))
 BEGIN
-DECLARE ins_id INT DEFAULT '0';
+DECLARE add_id INT default '-1';
 INSERT INTO `student`(`gid`) VALUES	(grp);
-SET ins_id = LAST_INSERT_ID();
+SET add_id = LAST_INSERT_ID();
 INSERT INTO `student_key_value`(`sid`,`skid`,`val`)
-VALUES	(ins_id,id_surname, val_surname),
-		(ins_id,id_name, val_name),
-		(ins_id,id_patronim, val_patronim),
-		(ins_id,id_zalik1, val_zalik1),
-		(ins_id,id_phone, val_phone),
-		(ins_id,id_passp, val_passp ),
-		(ins_id,id_surname2, val_surname2),
-		(ins_id,id_zalik2, val_zalik2),
-		(ins_id,id_photo, val_photo);
+VALUES	(add_id,id_surname, val_surname),
+		(add_id,id_name, val_name),
+		(add_id,id_patronim, val_patronim),
+		(add_id,id_zalik1, val_zalik1),
+		(add_id,id_phone, val_phone),
+		(add_id,id_passp, val_passp ),
+		(add_id,id_surname2, val_surname2),
+		(add_id,id_zalik2, val_zalik2),
+		(add_id,id_photo, val_photo);
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -3162,19 +3258,20 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addTeacher(kaf_id INT(2),id_surname INT(2), val_surname VARCHAR(255),id_name INT(2), val_name VARCHAR(255),id_patronim INT(2), val_patronim VARCHAR(255),id_posada INT(2), val_posada VARCHAR(255),id_phone INT(2), val_phone VARCHAR(255),id_passp INT(2), val_passp VARCHAR(255),id_surname2 INT(2), val_surname2 VARCHAR(255),id_phn_num2 INT(2), val_phn_num2 VARCHAR(255),id_photo INT(2), val_photo VARCHAR(255))
 BEGIN
-DECLARE ins_id INT DEFAULT '0';
+DECLARE add_id INT DEFAULT '-1';
 INSERT INTO `teacher`(`kid`) VALUES	(kaf_id);
-SET ins_id = LAST_INSERT_ID();
+SET add_id = LAST_INSERT_ID();
 INSERT INTO `teacher_key_value`(`tid`,`tkid`,`val`)
-VALUES	(ins_id,id_surname, val_surname),
-		(ins_id,id_name, val_name),
-		(ins_id,id_patronim, val_patronim),
-		(ins_id,id_posada, val_posada),
-		(ins_id,id_phone, val_phone),
-		(ins_id,id_passp, val_passp ),
-		(ins_id,id_surname2, val_surname2),
-		(ins_id,id_phn_num2, val_phn_num2),
-		(ins_id,id_photo, val_photo);
+VALUES	(add_id,id_surname, val_surname),
+		(add_id,id_name, val_name),
+		(add_id,id_patronim, val_patronim),
+		(add_id,id_posada, val_posada),
+		(add_id,id_phone, val_phone),
+		(add_id,id_passp, val_passp ),
+		(add_id,id_surname2, val_surname2),
+		(add_id,id_phn_num2, val_phn_num2),
+		(add_id,id_photo, val_photo);
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -3213,28 +3310,29 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addMainTeacherLoad(teach_id INT(2),lection_id INT(2),group_id INT(2),st_sem DATETIME,end_sem DATETIME,sub_grp_id INT(2),sub_grp_val INT(2),stud_cnt_id INT(2),stud_cnt_val INT(2),semestr_id INT(2),semesr_val INT(2),lec_id INT(2),lec_val INT(2),lab_id INT(2),lab_val INT(2),konrt_rob_id INT(2),konrt_rob_val INT(2),prakt_id INT(2),prakt_val INT(2),ispyt_id INT(2),ispyt_val INT(2),zalik_id INT(2),zalik_val INT(2),konsult_id INT(2),konsult_val INT(2),kurs_rob_id INT(2),kurs_rob_val INT(2),kurs_proj_id INT(2),kurs_proj_val INT(2),lec_aud_1_id INT(2),lec_aud_1_val INT(2),lec_aud_2_id INT(2),lec_aud_2_val INT(2),lab_aud_1_id INT(2),lab_aud_1_val INT(2),lab_aud_2_id INT(2),lab_aud_2_val INT(2),prakt_aud_1_id INT(2),prakt_aud_1_val INT(2),prakt_aud_2_id INT(2),prakt_aud_2_val INT(2))
 BEGIN
-DECLARE ins_id INT DEFAULT '0';
+DECLARE add_id INT DEFAULT '-1';
 INSERT INTO `main_navant`(`tid`,`lid`,`gid`,`startSem`,`endSem`) VALUES (teach_id,lection_id,group_id,st_sem,end_sem);
-SET ins_id = LAST_INSERT_ID();
+SET add_id = LAST_INSERT_ID();
 INSERT INTO `main_navant_key_value`(`mnid`,`mnkid`,`val`) 
-VALUES	(ins_id,sub_grp_id,sub_grp_val),
-		(ins_id,stud_cnt_id,stud_cnt_val),
-		(ins_id,semestr_id,semesr_val),
-		(ins_id,lec_id,lec_val),
-		(ins_id,lab_id,lab_val),
-		(ins_id,konrt_rob_id,konrt_rob_val),
-		(ins_id,prakt_id,prakt_val),
-		(ins_id,ispyt_id,ispyt_val),
-		(ins_id,zalik_id,zalik_val),
-		(ins_id,konsult_id,konsult_val),
-		(ins_id,kurs_rob_id,kurs_rob_val),
-		(ins_id,kurs_proj_id,kurs_proj_val),
-		(ins_id,lec_aud_1_id,lec_aud_1_val),
-		(ins_id,lec_aud_2_id,lec_aud_2_val),
-		(ins_id,lab_aud_1_id,lab_aud_1_val),
-		(ins_id,lab_aud_2_id,lab_aud_2_val),
-		(ins_id,prakt_aud_1_id,prakt_aud_1_val),
-		(ins_id,prakt_aud_2_id,prakt_aud_2_val);
+VALUES	(add_id,sub_grp_id,sub_grp_val),
+		(add_id,stud_cnt_id,stud_cnt_val),
+		(add_id,semestr_id,semesr_val),
+		(add_id,lec_id,lec_val),
+		(add_id,lab_id,lab_val),
+		(add_id,konrt_rob_id,konrt_rob_val),
+		(add_id,prakt_id,prakt_val),
+		(add_id,ispyt_id,ispyt_val),
+		(add_id,zalik_id,zalik_val),
+		(add_id,konsult_id,konsult_val),
+		(add_id,kurs_rob_id,kurs_rob_val),
+		(add_id,kurs_proj_id,kurs_proj_val),
+		(add_id,lec_aud_1_id,lec_aud_1_val),
+		(add_id,lec_aud_2_id,lec_aud_2_val),
+		(add_id,lab_aud_1_id,lab_aud_1_val),
+		(add_id,lab_aud_2_id,lab_aud_2_val),
+		(add_id,prakt_aud_1_id,prakt_aud_1_val),
+		(add_id,prakt_aud_2_id,prakt_aud_2_val);
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -3279,15 +3377,16 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addPersonalTeacherLoad(teach_id INT(2), st_sem DATETIME,end_sem DATETIME,stavka FLOAT, plan_nav FLOAT,dyp_proj_id INT(2),dyp_proj_val INT(2),recenz_DP_id INT(2),recenz_DP_val INT(2),mag_rob_id INT(2),mag_rob_val INT(2),rec_mag_id INT(2),rec_mag_val INT(2), DEK_id INT(2),DEK_val INT(2))
 BEGIN
-DECLARE ins_id INT DEFAULT '0';
+DECLARE add_id INT DEFAULT '-1';
 INSERT INTO `personal_navant`(`tid`,`startSem`,`endSem`,`stavka`,`planove_navant`) VALUES (teach_id,st_sem,end_sem,stavka,plan_nav);
-SET ins_id = LAST_INSERT_ID();
+SET add_id = LAST_INSERT_ID();
 INSERT INTO `personal_navant_key_value`(`pnid`,`pnkid`,`val`) 
-VALUES	(ins_id,dyp_proj_id,dyp_proj_val),
-		(ins_id,recenz_DP_id,recenz_DP_val),
-		(ins_id,mag_rob_id,mag_rob_val),
-		(ins_id,rec_mag_id,rec_mag_val),
-		(ins_id,DEK_id,DEK_val);
+VALUES	(add_id,dyp_proj_id,dyp_proj_val),
+		(add_id,recenz_DP_id,recenz_DP_val),
+		(add_id,mag_rob_id,mag_rob_val),
+		(add_id,rec_mag_id,rec_mag_val),
+		(add_id,DEK_id,DEK_val);
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -3319,7 +3418,10 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE addPracticeForTeacher(t_id INT(2),g_id INT(2),type_id INT(2),cnt INT(2), st_sem DATETIME, end_sem DATETIME)
 BEGIN
+DECLARE add_id INT DEFAULT '-1';
 INSERT INTO `practice`(`tid`,`gid`,`type_id`,`stud_cnt`,`startSem`,`endSem`) VALUES (t_id,g_id,type_id,cnt,st_sem,end_sem);
+SET add_id=LAST_INSERT_ID();
+SELECT add_id;
 END;
 \\
 DELIMITER ;
@@ -3551,79 +3653,14 @@ DELIMITER ;
 DELIMITER \\
 CREATE PROCEDURE getTeachersFinalLoadByKafedra(k_id INT(2),begSem DATETIME,finSem DATETIME)
 BEGIN
-SELECT PEVA.`NSP`,PEVA.`posada`,PEVA.`stavka`,PEVA.`planove_navant`,PEVA.`PersNavCalc`,MVA.`MainLoadCalc`,PVA.`cntPract`,
-(MVA.`MainLoadCalc`+PEVA.`PersNavCalc`+PVA.`cntPract`) AS finSum,
-(PEVA.`planove_navant`-(MVA.`MainLoadCalc`+PEVA.`PersNavCalc`+PVA.`cntPract`)) AS difCalc
-FROM `main_view_all` MVA	LEFT JOIN `pers_view_all` PEVA ON MVA.`id` = PEVA.`id`
-							LEFT JOIN `pract_view_all` PVA ON MVA.`id` = PVA.`id`
-WHERE  MVA.`kid` = k_id	AND (PVA.`startSem` AND PVA.`endSem` BETWEEN begSem AND finSem)
-						AND (PEVA.`startSem` AND PEVA.`endSem` BETWEEN begSem AND finSem)
-						AND (MVA.`startSem` AND MVA.`endSem` BETWEEN begSem AND finSem);
+SELECT IFNULL(PEVA.`NSP`,0),IFNULL(PEVA.`posada`,0),IFNULL(PEVA.`stavka`,0),IFNULL(PEVA.`planove_navant`,0),IFNULL(PEVA.`PersNavCalc`,0),IFNULL(MVA.`MainLoadCalc`,0),IFNULL(PVA.`cntPract`,0),
+(IFNULL(MVA.`MainLoadCalc`,0)+IFNULL(PEVA.`PersNavCalc`,0)+IFNULL(PVA.`cntPract`,0)) AS finSum,
+(IFNULL(PEVA.`planove_navant`,0)-(IFNULL(MVA.`MainLoadCalc`,0)+IFNULL(PEVA.`PersNavCalc`,0)+IFNULL(PVA.`cntPract`,0))) AS difCalc
+FROM `pers_view_all` PEVA CROSS JOIN `main_view_all` MVA ON(MVA.`id` = PEVA.`id`)
+						CROSS JOIN `pract_view_all` PVA ON(PEVA.`id` = PVA.`id`)
+WHERE  MVA.`kid` = k_id	AND (PVA.`startSem` AND PVA.`endSem` BETWEEN '2009-09-01' AND '2010-05-24')
+						AND (PEVA.`startSem` AND PEVA.`endSem` BETWEEN '2009-09-01' AND '2010-05-24')
+						AND (MVA.`startSem` AND MVA.`endSem` BETWEEN '2009-09-01' AND '2010-05-24');
 END;
 \\
 DELIMITER ;
-
-/*main navant for all*/
-
-CREATE OR REPLACE VIEW main_view_all AS SELECT	T.`id`,
-		TKV.`val` AS surname,
-		TKV1.`val` AS name,
-		TKV2.`val` AS patronimic,
-		T.`kid`,
-		MN.`startSem`,MN.`endSem`,
-		SUM(IFNULL(MNKV6.`val`,0)+IFNULL(MNKV3.`val`,0)+IFNULL(MNKV4.`val`,0)+IFNULL(MNKV7.`val`*0.33*MNKV1.`val`,0)+IFNULL(MNKV8.`val`*2,0)+IFNULL(MNKV9.`val`*2,0)+IFNULL(MNKV5.`val`*0.33*MNKV1.`val`,0)+IFNULL(MNKV11.`val`*3*MNKV1.`val`,0)+IFNULL(MNKV12.`val`*4*MNKV1.`val`,0)) AS MainLoadCalc
-		FROM `main_navant` MN LEFT JOIN `teacher` T ON MN.`tid` = T.`id`
-						LEFT JOIN `lessons` L ON MN.`lid` = L.`id`
-						LEFT JOIN `groups_of_students` GOS ON MN.`gid` = GOS.`id`
-						LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
-						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
-						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
-						LEFT JOIN `main_navant_key_value` MNKV ON(MN.`id` = MNKV.`mnid` AND MNKV.`mnkid`=1)
-						LEFT JOIN `main_navant_key_value` MNKV1 ON(MN.`id` = MNKV1.`mnid` AND MNKV1.`mnkid`=2)
-						LEFT JOIN `main_navant_key_value` MNKV2 ON(MN.`id` = MNKV2.`mnid` AND MNKV2.`mnkid`=3)
-						LEFT JOIN `main_navant_key_value` MNKV3 ON(MN.`id` = MNKV3.`mnid` AND MNKV3.`mnkid`=4)
-						LEFT JOIN `main_navant_key_value` MNKV4 ON(MN.`id` = MNKV4.`mnid` AND MNKV4.`mnkid`=5)
-						LEFT JOIN `main_navant_key_value` MNKV5 ON(MN.`id` = MNKV5.`mnid` AND MNKV5.`mnkid`=6)
-						LEFT JOIN `main_navant_key_value` MNKV6 ON(MN.`id` = MNKV6.`mnid` AND MNKV6.`mnkid`=7)
-						LEFT JOIN `main_navant_key_value` MNKV7 ON(MN.`id` = MNKV7.`mnid` AND MNKV7.`mnkid`=8)
-						LEFT JOIN `main_navant_key_value` MNKV8 ON(MN.`id` = MNKV8.`mnid` AND MNKV8.`mnkid`=9)
-						LEFT JOIN `main_navant_key_value` MNKV9 ON(MN.`id` = MNKV9.`mnid` AND MNKV9.`mnkid`=10)
-						LEFT JOIN `main_navant_key_value` MNKV11 ON(MN.`id` = MNKV11.`mnid` AND MNKV11.`mnkid`=11)
-						LEFT JOIN `main_navant_key_value` MNKV12 ON(MN.`id` = MNKV12.`mnid` AND MNKV12.`mnkid`=12)
-						GROUP BY T.`id`,MN.`startSem`,MN.`endSem`
-						;
-
-/*practice navantajenna for all*/
-
-CREATE OR REPLACE VIEW pract_view_all AS SELECT T.`id`,CONCAT(TKV.`val`,' ',SUBSTRING(TKV1.`val`,1,1),'. ',SUBSTRING(TKV2.`val`,1,1),'.') AS teacher_p,
-GOS.`name`,TP.`type_prakt_val`,P.`stud_cnt`,
-P.`startSem`,P.`endSem`,T.`kid`,
-(P.`stud_cnt`*3) AS cntPract 
-FROM `practice` P	LEFT JOIN `teacher` T ON P.`tid` = T.`id`
-					LEFT JOIN `type_prakt` TP ON P.`type_id` = TP.`id`
-					LEFT JOIN `groups_of_students` GOS ON P.`gid` = GOS.`id`
-					LEFT JOIN `teacher_key_value` TKV ON(TKV.`tid` = T.`id` AND TKV.`tkid` = 1)
-					LEFT JOIN `teacher_key_value` TKV1 ON(TKV1.`tid` = T.`id` AND TKV1.`tkid` = 2)
-					LEFT JOIN `teacher_key_value` TKV2 ON(TKV2.`tid` = T.`id` AND TKV2.`tkid` = 3)
-					;
-
-/*personal navantajenna for all*/
-
-CREATE OR REPLACE VIEW pers_view_all AS SELECT	T.`id`,T.`kid`,
-		CONCAT(TKV.`val`,' ',SUBSTRING(TKV1.`val`,1,1),'. ',SUBSTRING(TKV2.`val`,1,1),'.') AS NSP,
-		TKV3.`val` AS posada,
-		PN.`startSem`,PN.`endSem`,PN.`stavka`,PN.`planove_navant`,
-		(IFNULL(PNKV.`val`*20,0)+IFNULL(PNKV1.`val`*3,0)+IFNULL(PNKV2.`val`*30,0)+IFNULL(PNKV3.`val`*4,0)) AS PersNavCalc
-		FROM `teacher` T LEFT JOIN `teacher_key_value` TKV ON(T.`id` = TKV.`tid` AND TKV.`tkid`=1)
-						LEFT JOIN `teacher_key_value` TKV1 ON(T.`id` = TKV1.`tid` AND TKV1.`tkid`=2)
-						LEFT JOIN `teacher_key_value` TKV2 ON(T.`id` = TKV2.`tid` AND TKV2.`tkid`=3)
-						LEFT JOIN `teacher_key_value` TKV3 ON(T.`id` = TKV3.`tid` AND TKV3.`tkid`=4)
-						LEFT JOIN `teacher_key_value` TKV6 ON(T.`id` = TKV6.`tid` AND TKV6.`tkid`=9)
-						LEFT JOIN `personal_navant` PN ON PN.`tid` = T.`id`
-						LEFT JOIN `personal_navant_key_value` PNKV ON(PN.`id` = PNKV.`pnid` AND PNKV.`pnkid`=1)
-						LEFT JOIN `personal_navant_key_value` PNKV1 ON(PN.`id` = PNKV1.`pnid` AND PNKV1.`pnkid`=2)
-						LEFT JOIN `personal_navant_key_value` PNKV2 ON(PN.`id` = PNKV2.`pnid` AND PNKV2.`pnkid`=3)
-						LEFT JOIN `personal_navant_key_value` PNKV3 ON(PN.`id` = PNKV3.`pnid` AND PNKV3.`pnkid`=4)
-						LEFT JOIN `personal_navant_key_value` PNKV4 ON(PN.`id` = PNKV4.`pnid` AND PNKV4.`pnkid`=5)
-						LEFT JOIN `kafedra` K ON K.`id` = T.`kid`
-						;
