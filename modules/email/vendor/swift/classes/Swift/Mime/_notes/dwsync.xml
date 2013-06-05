@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Attachment.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="CharsetObserver.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="ContentEncoder.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="EmbeddedFile.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="EncodingObserver.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Header.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="HeaderEncoder.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="HeaderFactory.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="HeaderSet.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Message.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="MimeEntity.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="MimePart.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="ParameterizedHeader.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SimpleHeaderFactory.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SimpleHeaderSet.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SimpleMessage.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SimpleMimeEntity.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+</dwsync>

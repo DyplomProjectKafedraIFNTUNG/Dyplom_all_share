@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractSmtpTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="EsmtpHandler.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="EsmtpTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="FailoverTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="IoBuffer.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="LoadBalancedTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="MailInvoker.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="MailTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SendmailTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SimpleMailInvoker.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SmtpAgent.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="StreamBuffer.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+</dwsync>

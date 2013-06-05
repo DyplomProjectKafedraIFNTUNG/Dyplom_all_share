@@ -1,0 +1,16 @@
+﻿Модуль для Kohana, предназначенный для работы с uLogin
+Добавлена совместимость с Kohana 3.3.0
+
+Установка:
+1. Создать таблицу ulogins:
+CREATE TABLE `ulogins` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`user_id` INT(11) NOT NULL,
+	`network` VARCHAR(255) NOT NULL,
+	`identity` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `identity` (`identity`)
+)
+2. Добавить 'ulogins' => array(), в protected $_has_many у модели user
+3. Скопируйте файл ulogin.php из папки /config/ в вашу папку с конфигами приложения - /application/config/
+4. В файле /application/config/ulogin.php расскоментируйте нужные строки для подключения требуемых веб-сервисов

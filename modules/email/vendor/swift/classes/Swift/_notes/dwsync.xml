@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="Attachment.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="CharacterReader.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="CharacterReaderFactory.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="CharacterStream.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="DependencyContainer.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="DependencyException.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="EmbeddedFile.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Encoder.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Encoding.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="FailoverTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="FileStream.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Filterable.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Image.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="InputByteStream.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="IoException.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="KeyCache.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="LoadBalancedTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Mailer.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="MailTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Message.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="MimePart.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="OutputByteStream.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Preferences.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="ReplacementFilterFactory.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="RfcComplianceException.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SendmailTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SmtpTransport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="StreamFilter.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="SwiftException.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Transport.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="TransportException.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+</dwsync>

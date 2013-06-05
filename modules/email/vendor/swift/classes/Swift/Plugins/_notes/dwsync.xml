@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AntiFloodPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="BandwidthMonitorPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="DecoratorPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Logger.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="LoggerPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="PopBeforeSmtpPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Reporter.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="ReporterPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Sleeper.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="ThrottlerPlugin.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+<file name="Timer.php" server="ruslan.cc//ratefilm/public_html/" local="129460009480000000" remote="130053793200000000" />
+</dwsync>
